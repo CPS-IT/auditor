@@ -1,0 +1,8 @@
+{
+"name": "cpsit/conductor",
+  "description": "Orchestrates PHP application bundles.",
+  "license": "GPL-2.0-or-later",
+  "require": {
+        "php": ">=7.0.0 <7.3.0"
+    }
+}
