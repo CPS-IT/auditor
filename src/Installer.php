@@ -42,6 +42,7 @@ final class Installer implements PluginInterface, EventSubscriberInterface
     public const ERROR_ROOT_PACKAGE_NOT_FOUND = 'Package not found (probably scheduled for removal); generation of application reflection class skipped.';
     public const MESSAGE_GENERATE_APPLICATION_REFLECTION = 'Generate application reflection class...';
     public const MESSAGE_DONE_APPLICATION_REFLECTION = '...done generating application reflection class';
+    public const ENTRY_METHOD_NAME = 'dumpApplicationReflectionClass';
 
     private static $generatedClassTemplate = <<<'PHP'
 <?php
@@ -79,8 +80,8 @@ PHP;
     public static function getSubscribedEvents(): array
     {
         return [
-            ScriptEvents::POST_INSTALL_CMD => 'dumpApplicationReflectionClass',
-            ScriptEvents::POST_UPDATE_CMD => 'dumpApplicationReflectionClass',
+            ScriptEvents::POST_INSTALL_CMD => self::ENTRY_METHOD_NAME,
+            ScriptEvents::POST_UPDATE_CMD => self::ENTRY_METHOD_NAME,
         ];
     }
 
@@ -107,7 +108,7 @@ PHP;
         }
         $io->write(self::MESSAGE_INFO_LEAD . self::MESSAGE_GENERATE_APPLICATION_REFLECTION);
 
-        file_put_contents($installPath, $versionClassSource);
+        file_put_contents($installPath, $reflectionClassSource);
         chmod($installPath, 0664);
 
         $io->write(self::MESSAGE_INFO_LEAD . self::MESSAGE_DONE_APPLICATION_REFLECTION);
