@@ -66,7 +66,7 @@ namespace Cpsit\Conductor;
     }
     
     public static function getProperty(string $key) {
-        if (!isset self::$properties[$key]) {
+        if (!isset (self::$properties[$key])) {
             throw new \OutOfBoundsException(
                 'Required key "' . $key . '" is not valid: property not found in package'
             );
