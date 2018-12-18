@@ -57,7 +57,6 @@ namespace Cpsit\Conductor;
 %s
 {
     const ROOT_PACKAGE_NAME = '%s';
-    const VERSIONS = %s;
 
     private function __construct()
     {
