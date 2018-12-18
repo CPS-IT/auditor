@@ -27,5 +27,9 @@
     "psr-4": {
       "Cpsit\\Conductor\\Tests\\": "tests/ConductorTest"
     }
+  },
+  "scripts": {
+    "post-update-cmd": "PackageVersions\\Installer::dumpApplicationReflectionClass",
+    "post-install-cmd": "PackageVersions\\Installer::dumpApplicationReflectionClass"
   }
 }
