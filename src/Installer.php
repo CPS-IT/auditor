@@ -59,14 +59,14 @@ namespace Cpsit\Conductor;
 %s
 {
     const ROOT_PACKAGE_NAME = '%s';
-    const PROPERTIES = %s;
+    static protected $properties = %s;
     
     private function __construct()
     {
     }
     
     public static function getProperty(string $key) {
-        if (!isset self::PROPERTIES[$key]) {
+        if (!isset self::$properties[$key]) {
             throw new \OutOfBoundsException(
                 'Required key "' . $key . '" is not valid: property not found in package'
             );

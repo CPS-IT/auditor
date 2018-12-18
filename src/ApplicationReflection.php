@@ -11,7 +11,7 @@ namespace Cpsit\Conductor;
 final class ApplicationReflection
 {
     const ROOT_PACKAGE_NAME = 'cpsit/ihkof-bundle';
-    const PROPERTIES = 'array (
+    const PROPERTIES = array (
   'aliases' => 
   array (
   ),
@@ -2442,7 +2442,7 @@ final class ApplicationReflection
   'repository' => NULL,
   'uniqueName' => 'cpsit/ihkof-bundle-dev-feature/conductor',
   'notificationUrl' => NULL,
-)';
+);
     
     private function __construct()
     {
