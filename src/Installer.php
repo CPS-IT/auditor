@@ -157,7 +157,7 @@ PHP;
             self::$generatedClassTemplate,
             'fin' . 'al ' . 'cla' . 'ss ' . 'ApplicationReflection', // note: workaround for regex-based code parsers :-(
             $rootPackageName,
-            $properties
+            var_export($properties, true)
         );
     }
 
