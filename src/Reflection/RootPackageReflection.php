@@ -1,4 +1,9 @@
 <?php
+
+namespace Cpsit\Conductor\Reflection;
+use Composer\Package\RootPackageInterface;
+use Cpsit\Conductor\RootPackageReflectionInterface;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -16,12 +21,23 @@
  * This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-namespace Cpsit\Conductor;
-
-
-interface SettingsInterface
+class RootPackageReflection
 {
-    public const PACKAGE_IDENTIFIER = 'cpsit/conductor';
-    public const KEY_VENDOR_DIR = 'vendor-dir';
 
+    /**
+     * Gets all reflectable properties from Package
+     * @param RootPackageInterface $package
+     */
+    static public function getProperties(RootPackageInterface $package) :array {
+        $properties = [];
+        $allowedProperties = RootPackageReflectionInterface::SUPPORTED_PACKAGE_PROPERTIES;
+
+        foreach ($allowedProperties as $propertyName) {
+            $methodName = 'get' . ucfirst($propertyName);
+            if (method_exists($package, $methodName)) {
+                $properties[$propertyName] = $package->{$methodName};
+            }
+        }
+        return $properties;
+    }
 }

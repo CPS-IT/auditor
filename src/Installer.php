@@ -30,6 +30,7 @@ use Composer\Package\RootPackageInterface;
 use Composer\Plugin\PluginInterface;
 use Composer\Script\Event;
 use Composer\Script\ScriptEvents;
+use Cpsit\Conductor\Reflection\RootPackageReflection;
 use Cpsit\Conductor\SettingsInterface as SI;
 
 /**
@@ -58,9 +59,18 @@ namespace Cpsit\Conductor;
 %s
 {
     const ROOT_PACKAGE_NAME = '%s';
-
+    const PROPERTIES = '%s';
+    
     private function __construct()
     {
+    }
+    
+    public static function getProperty(string $key) {
+        if (!isset self::PROPERTIES[$key]) {
+            throw new \OutOfBoundsException(
+                'Required key "' . $key . '" is not valid: property not found in package'
+            );
+        }
     }
 }
 
@@ -89,7 +99,8 @@ PHP;
     {
         $composer = $composerEvent->getComposer();
         $rootPackage = $composer->getPackage();
-        $reflectionClass = self::generateApplicationReflectionClass($rootPackage->getName());
+        $properties = RootPackageReflection::getProperties($rootPackage);
+        $reflectionClass = self::generateApplicationReflectionClass($rootPackage->getName(), $properties);
 
         self::writeApplicationReflectionToFile($reflectionClass, $composer, $composerEvent->getIO());
     }
@@ -140,12 +151,13 @@ PHP;
         return $package;
     }
 
-    private static function generateApplicationReflectionClass(string $rootPackageName): string
+    private static function generateApplicationReflectionClass(string $rootPackageName, array $properties): string
     {
         return sprintf(
             self::$generatedClassTemplate,
             'fin' . 'al ' . 'cla' . 'ss ' . 'ApplicationReflection', // note: workaround for regex-based code parsers :-(
-            $rootPackageName
+            $rootPackageName,
+            $properties
         );
     }
 
