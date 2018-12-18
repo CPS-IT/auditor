@@ -23,5 +23,6 @@ interface SettingsInterface
 {
     public const PACKAGE_IDENTIFIER = 'cpsit/conductor';
     public const KEY_VENDOR_DIR = 'vendor-dir';
-
+    public const APPLICATION_REFLECTIION_CLASS = 'ApplicationReflection';
+    public const SOURCE_FOLDER_NAME = 'src';
 }
