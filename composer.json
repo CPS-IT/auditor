@@ -1,8 +1,31 @@
 {
-"name": "cpsit/conductor",
+  "name": "cpsit/conductor",
   "description": "Orchestrates PHP application bundles.",
   "license": "GPL-2.0-or-later",
+
   "require": {
-        "php": ">=7.0.0 <7.3.0"
+    "php": ">=7.0.0 <7.3.0",
+    "composer-plugin-api": "^1.0.0",
+    "ocramius/package-versions": "^1.3.0"
+  },
+  "authors": [
+    {
+      "name": "Dirk Wenzel",
+      "email": "dirk.wenzel@cps-it.de"
     }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "^6.5.0 || ^7.0.0",
+    "composer/composer": "^1.6.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Cpsit\\Conductor\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Cpsit\\Conductor\\Tests\\": "tests/ConductorTest"
+    }
+  }
 }
