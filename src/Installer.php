@@ -140,13 +140,12 @@ PHP;
         return $package;
     }
 
-    private static function generateApplicationReflectionClass(string $rootPackageName, array $versions): string
+    private static function generateApplicationReflectionClass(string $rootPackageName): string
     {
         return sprintf(
             self::$generatedClassTemplate,
             'fin' . 'al ' . 'cla' . 'ss ' . 'ApplicationReflection', // note: workaround for regex-based code parsers :-(
-            $rootPackageName,
-            var_export($versions, true)
+            $rootPackageName
         );
     }
 
