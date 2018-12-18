@@ -11,8 +11,2448 @@ namespace Cpsit\Conductor;
 final class ApplicationReflection
 {
     const ROOT_PACKAGE_NAME = 'cpsit/ihkof-bundle';
-
+    const PROPERTIES = 'array (
+  'aliases' => 
+  array (
+  ),
+  'minimumStability' => 'stable',
+  'stabilityFlags' => 
+  array (
+    'ichhabrecht/multicolumn' => 20,
+    'ihk-offenbach/solr' => 20,
+    'cpsit/cps-shortnr' => 20,
+    'nimut/hellurl' => 20,
+    'roave/security-advisories' => 20,
+    'cpsit/conductor' => 20,
+  ),
+  'references' => 
+  array (
+    'nimut/hellurl' => 'd85bd83333f8bb062690ed65930fb9e88108ca73',
+  ),
+  'preferStable' => false,
+  'config' => 
+  array (
+    'vendor-dir' => 'app/vendor',
+    'web-dir' => 'app/web',
+    'bin-dir' => 'app/vendor/bin',
+    'preferred-install' => 
+    array (
+      'cpsit/ihkof-sitepackage' => 'source',
+      'cpsit/conductor' => 'source',
+      'composer/composer' => 'source',
+      '*' => 'dist',
+    ),
+  ),
+  'requires' => 
+  array (
+    'typo3/cms-core' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-core',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-belog' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-belog',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-beuser' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-beuser',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-context-help' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-context-help',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-felogin' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-felogin',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-filelist' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-filelist',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-extensionmanager' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-extensionmanager',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-lang' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-lang',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-cshmanual' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-cshmanual',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-saltedpasswords' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-saltedpasswords',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-scheduler' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-scheduler',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-sv' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-sv',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-about' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-about',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-documentation' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-documentation',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-filemetadata' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-filemetadata',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-form' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-form',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-func' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-func',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-fluid' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-fluid',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-fluid-styled-content' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-fluid-styled-content',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-linkvalidator' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-linkvalidator',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-recycler' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-recycler',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-sys-note' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-sys-note',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-t3editor' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-t3editor',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-wizard-crpages' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-wizard-crpages',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-wizard-sortpages' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-wizard-sortpages',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-impexp' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-impexp',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-info' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-info',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-info-pagetsconfig' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-info-pagetsconfig',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-lowlevel' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-lowlevel',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-reports' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-reports',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-rsaauth' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-rsaauth',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-rte-ckeditor' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-rte-ckeditor',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-setup' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-setup',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-tstemplate' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-tstemplate',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'typo3/cms-viewpage' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3/cms-viewpage',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.7.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.7',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.7',
+    )),
+    'helhum/typo3-console' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'helhum/typo3-console',
+       'constraint' => 
+      Composer\Semver\Constraint\Constraint::__set_state(array(
+         'operator' => 0,
+         'version' => '5.5.0.0',
+         'prettyString' => '5.5.0',
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '5.5.0',
+    )),
+    'ichhabrecht/multicolumn' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'ichhabrecht/multicolumn',
+       'constraint' => 
+      Composer\Semver\Constraint\Constraint::__set_state(array(
+         'operator' => 0,
+         'version' => 'dev-compatibility-9',
+         'prettyString' => 'dev-compatibility-9',
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => 'dev-compatibility-9',
+    )),
+    'reelworx/rx-shariff' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'reelworx/rx-shariff',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '8.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '9.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^8.0.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^8.0.0',
+    )),
+    'helhum/config-loader' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'helhum/config-loader',
+       'constraint' => 
+      Composer\Semver\Constraint\EmptyConstraint::__set_state(array(
+         'prettyString' => '*',
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '*',
+    )),
+    'in2code/powermail' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'in2code/powermail',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '6.1.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '6.2.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '6.1.*',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '6.1.*',
+    )),
+    'typo3-ter/news' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'typo3-ter/news',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '6.3.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '7.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^6.3',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^6.3',
+    )),
+    'sjbr/static-info-tables' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'sjbr/static-info-tables',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '6.3.9.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '7.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^6.3.9',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^6.3.9',
+    )),
+    'georgringer/news' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'georgringer/news',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '6.3.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '7.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^6.3.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^6.3.0',
+    )),
+    'friendsoftypo3/tt-address' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'friendsoftypo3/tt-address',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '3.2.2.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '4.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^3.2.2',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^3.2.2',
+    )),
+    'directmailteam/direct-mail' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'directmailteam/direct-mail',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '5.2.2.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '6.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^5.2.2',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^5.2.2',
+    )),
+    'dmitryd/typo3-dd-googlesitemap' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'dmitryd/typo3-dd-googlesitemap',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '2.1.4.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '3.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^2.1.4',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^2.1.4',
+    )),
+    'ichhabrecht/hosts-pattern' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'ichhabrecht/hosts-pattern',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '2.3.2.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '3.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^2.3.2',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^2.3.2',
+    )),
+    'ihk-offenbach/solr' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'ihk-offenbach/solr',
+       'constraint' => 
+      Composer\Semver\Constraint\Constraint::__set_state(array(
+         'operator' => 0,
+         'version' => 'dev-release-6.5.x',
+         'prettyString' => 'dev-release-6.5.x',
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => 'dev-release-6.5.x',
+    )),
+    'apache-solr-for-typo3/tika' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'apache-solr-for-typo3/tika',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '3.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '4.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^3.0.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^3.0.0',
+    )),
+    'cpsit/cps-shortnr' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/cps-shortnr',
+       'constraint' => 
+      Composer\Semver\Constraint\Constraint::__set_state(array(
+         'operator' => 0,
+         'version' => 'dev-feature/hellurl',
+         'prettyString' => 'dev-feature/hellurl',
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => 'dev-feature/hellurl',
+    )),
+    'cpsit/ihkof-contacts' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/ihkof-contacts',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '1.1.2.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '2.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^1.1.2',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^1.1.2',
+    )),
+    'in2code/typoscript2ce' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'in2code/typoscript2ce',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '1.2.3.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '2.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^1.2.3',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^1.2.3',
+    )),
+    'beechit/fal-securedownload' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'beechit/fal-securedownload',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '2.0.1.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '3.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^2.0.1',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^2.0.1',
+    )),
+    'cpsit/ihkof-testimonials' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/ihkof-testimonials',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '2.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '3.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^2.0.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^2.0.0',
+    )),
+    'cpsit/cpsihkoffdashboarder' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/cpsihkoffdashboarder',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '0.4.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '0.5.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^0.4.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^0.4.0',
+    )),
+    'cpsit/cps-ihkoffbranchesgrid' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/cps-ihkoffbranchesgrid',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '0.3.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '0.4.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^0.3.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^0.3.0',
+    )),
+    'cpsit/solrfal' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/solrfal',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '4.2.1.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '5.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^4.2.1',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^4.2.1',
+    )),
+    'nimut/hellurl' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'nimut/hellurl',
+       'constraint' => 
+      Composer\Semver\Constraint\Constraint::__set_state(array(
+         'operator' => 0,
+         'version' => '9999999-dev',
+         'prettyString' => 'dev-master#d85bd83333f8bb062690ed65930fb9e88108ca73',
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => 'dev-master#d85bd83333f8bb062690ed65930fb9e88108ca73',
+    )),
+    'cpsit/ihkof-azlist' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/ihkof-azlist',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '1.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '2.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^1.0.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^1.0.0',
+    )),
+    'cpsit/cps-ihkoffsliders' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/cps-ihkoffsliders',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '0.4.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '0.5.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^0.4.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^0.4.0',
+    )),
+    'sseidelmann/static-info-tables-de' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'sseidelmann/static-info-tables-de',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '6.3.9.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '7.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^6.3.9',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^6.3.9',
+    )),
+    'fab/metadata' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'fab/metadata',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '2.3.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '3.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^2.3.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^2.3.0',
+    )),
+    'cpsit/t3events_reservation' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/t3events_reservation',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '0.13.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '0.14.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^0.13',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^0.13',
+    )),
+    'cpsit/t3events_course' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/t3events_course',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '0.10.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '1.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '~0.10',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '~0.10',
+    )),
+    'cpsit/ihkof-reservation' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/ihkof-reservation',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '2.2.4.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '3.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^2.2.4',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^2.2.4',
+    )),
+    'cpsit/cps-directmailpersonalization' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/cps-directmailpersonalization',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '2.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '2.1.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '~2.0.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '~2.0.0',
+    )),
+    'cpsit/directmail-subscription' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/directmail-subscription',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '1.1.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '2.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^1.1.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^1.1.0',
+    )),
+    'koninklijke-collective/my-user-management' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'koninklijke-collective/my-user-management',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '3.3.4.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '4.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^3.3.4',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^3.3.4',
+    )),
+    'lochmueller/sourceopt' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'lochmueller/sourceopt',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '1.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '2.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^1.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^1.0',
+    )),
+    'cpsit/cps-contact4news' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/cps-contact4news',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '0.1.1.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '0.2.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^0.1.1',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^0.1.1',
+    )),
+    'portrino/px_validation' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'portrino/px_validation',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '1.1.3.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '2.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^1.1.3',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^1.1.3',
+    )),
+    'pixelant/pxa-siteimprove' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'pixelant/pxa-siteimprove',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '1.1.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '2.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^1.1',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '^1.1',
+    )),
+    'cweagans/composer-patches' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cweagans/composer-patches',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '1.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '2.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '~1.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '~1.0',
+    )),
+    'cpsit/ihkof-events' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/ihkof-events',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '2.3.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '2.4.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '~2.3.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '~2.3.0',
+    )),
+    'dwenzel/t3events' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'dwenzel/t3events',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '0.41.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '1.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '~0.41',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '~0.41',
+    )),
+    'cpsit/ihkof-contentelements' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/ihkof-contentelements',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '1.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '2.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '~1.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '~1.0',
+    )),
+    'cpsit/ihkof-sitepackage' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/ihkof-sitepackage',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '2.5.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '2.6.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '~2.5.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires',
+       'prettyConstraint' => '~2.5.0',
+    )),
+  ),
+  'scripts' => 
+  array (
+    'folder-structure' => 
+    array (
+      0 => 'app/vendor/bin/typo3cms install:fixfolderstructure &> /dev/null',
+    ),
+    'generate-package-states' => 
+    array (
+      0 => 'app/vendor/bin/typo3cms install:generatepackagestates',
+    ),
+    'pre-deploy' => 
+    array (
+      0 => '# Scripts here will be executed after composer install',
+    ),
+    'post-autoload-dump' => 
+    array (
+      0 => '@generate-package-states',
+      1 => '@folder-structure',
+    ),
+  ),
+  'repositories' => 
+  array (
+    24 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@github.com:pixelant/pxa_siteimprove.git',
+    ),
+    23 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:ihk-offenbach/directmail_subscription.git',
+    ),
+    22 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:cps-it/cps_shortnr.git',
+    ),
+    21 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:ihk-offenbach/cps_directmailpersonalization.git',
+    ),
+    20 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:ihk-offenbach/ihkof-azlist.git',
+    ),
+    19 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:cps-it/solr_fal.git',
+    ),
+    18 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:ihk-offenbach/solr.git',
+    ),
+    17 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:ihk-offenbach/cps_ihkoffbranchesgrid.git',
+    ),
+    16 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:ihk-offenbach/cpsihkoffdashboarder.git',
+    ),
+    15 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:ihk-offenbach/cps_ihkoffsliders.git',
+    ),
+    14 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:cps-it/migration_wizards.git',
+    ),
+    13 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:ihk-offenbach/ihk_offenbach_contacts.git',
+    ),
+    12 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:ihk-offenbach/multicolumn.git',
+    ),
+    11 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@github.com:CPS-IT/px_validation.git',
+    ),
+    10 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:ihk-offenbach/ihkof_events.git',
+    ),
+    9 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:ihk-offenbach/ihkof_reservation.git',
+    ),
+    8 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:ihk-offenbach/cps_testimonials.git',
+    ),
+    7 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:ihk-offenbach/ihkof_projectconf.git',
+    ),
+    6 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:typo3/course_bison_export.git',
+    ),
+    5 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:ihk-offenbach/cps_directmailpersonalization.git',
+    ),
+    4 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:cps-it/migration_wizards.git',
+    ),
+    3 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:ihk-offenbach/ihkof_contentelements.git',
+    ),
+    2 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:ihk-offenbach/ihkof_sitepackage.git',
+    ),
+    1 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@gitlab.cps-projects.de:ihk-offenbach/cps_contact4news.git',
+    ),
+    0 => 
+    array (
+      'type' => 'vcs',
+      'url' => 'git@github.com:CPS-IT/conductor.git',
+    ),
+    'packagist.org' => 
+    array (
+      'type' => 'composer',
+      'url' => 'https?://repo.packagist.org',
+      'allow_ssl_downgrade' => true,
+    ),
+  ),
+  'license' => 
+  array (
+    0 => 'GPL-2.0-or-later',
+  ),
+  'keywords' => NULL,
+  'description' => 'Bundle for the TYPO3 web project offenbach.ihk.de. This bundle requires TYPO3 version 8.',
+  'homepage' => NULL,
+  'authors' => NULL,
+  'support' => 
+  array (
+  ),
+  'name' => 'cpsit/ihkof-bundle',
+  'prettyName' => 'cpsit/ihkof-bundle',
+  'names' => 
+  array (
+    0 => 'cpsit/ihkof-bundle',
+  ),
+  'id' => -1,
+  'type' => 'library',
+  'targetDir' => NULL,
+  'extra' => 
+  array (
+    'typo3/cms' => 
+    array (
+      'cms-package-dir' => '{$vendor-dir}/typo3/cms',
+      'web-dir' => 'app/web',
+    ),
+    'helhum/typo3-console' => 
+    array (
+      'install-extension-dummy' => false,
+    ),
+    'typo3/class-alias-loader' => 
+    array (
+      'always-add-alias-loader' => true,
+    ),
+  ),
+  'installationSource' => NULL,
+  'sourceType' => '',
+  'sourceUrl' => '',
+  'sourceReference' => '3768cfb61eeee0756e14dde3457f81d93d5544fa',
+  'sourceMirrors' => NULL,
+  'distType' => '',
+  'distUrl' => '',
+  'distUrls' => 
+  array (
+  ),
+  'distReference' => '3768cfb61eeee0756e14dde3457f81d93d5544fa',
+  'distSha1Checksum' => NULL,
+  'distMirrors' => NULL,
+  'version' => 'dev-feature/conductor',
+  'fullPrettyVersion' => 'dev-feature/conductor',
+  'releaseDate' => NULL,
+  'conflicts' => 
+  array (
+  ),
+  'provides' => 
+  array (
+  ),
+  'replaces' => 
+  array (
+  ),
+  'devRequires' => 
+  array (
+    'roave/security-advisories' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'roave/security-advisories',
+       'constraint' => 
+      Composer\Semver\Constraint\Constraint::__set_state(array(
+         'operator' => 0,
+         'version' => '9999999-dev',
+         'prettyString' => 'dev-master',
+      )),
+       'description' => 'requires (for development)',
+       'prettyConstraint' => 'dev-master',
+    )),
+    'ichhabrecht/filefill' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'ichhabrecht/filefill',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '1.1.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '2.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^1.1.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires (for development)',
+       'prettyConstraint' => '^1.1.0',
+    )),
+    'nimut/testing-framework' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'nimut/testing-framework',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '3.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '4.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^3.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires (for development)',
+       'prettyConstraint' => '^3.0',
+    )),
+    'cpsit/migration-wizards' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/migration-wizards',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '1.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '2.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^1.0.0',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires (for development)',
+       'prettyConstraint' => '^1.0.0',
+    )),
+    'squizlabs/php_codesniffer' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'squizlabs/php_codesniffer',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '3.3.1.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '4.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^3.3.1',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires (for development)',
+       'prettyConstraint' => '^3.3.1',
+    )),
+    'cpsit/conductor' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'cpsit/conductor',
+       'constraint' => 
+      Composer\Semver\Constraint\Constraint::__set_state(array(
+         'operator' => 0,
+         'version' => 'dev-develop',
+         'prettyString' => 'dev-develop',
+      )),
+       'description' => 'requires (for development)',
+       'prettyConstraint' => 'dev-develop',
+    )),
+    'composer/composer' => 
+    Composer\Package\Link::__set_state(array(
+       'source' => 'cpsit/ihkof-bundle',
+       'target' => 'composer/composer',
+       'constraint' => 
+      Composer\Semver\Constraint\MultiConstraint::__set_state(array(
+         'constraints' => 
+        array (
+          0 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 4,
+             'version' => '1.8.0.0-dev',
+             'prettyString' => NULL,
+          )),
+          1 => 
+          Composer\Semver\Constraint\Constraint::__set_state(array(
+             'operator' => 1,
+             'version' => '2.0.0.0-dev',
+             'prettyString' => NULL,
+          )),
+        ),
+         'prettyString' => '^1.8',
+         'conjunctive' => true,
+      )),
+       'description' => 'requires (for development)',
+       'prettyConstraint' => '^1.8',
+    )),
+  ),
+  'suggests' => 
+  array (
+  ),
+  'autoload' => 
+  array (
+    'files' => 
+    array (
+      0 => '/Users/d.wenzel/projekt/ihkof-bundle/app/vendor/helhum/console-autoload-include.php',
+      1 => '/Users/d.wenzel/projekt/ihkof-bundle/app/vendor/typo3/autoload-include.php',
+    ),
+  ),
+  'devAutoload' => 
+  array (
+    'psr-4' => 
+    array (
+      'DWenzel\\T3events\\Tests\\' => 'app/web/typo3conf/ext/t3events/Tests',
+    ),
+  ),
+  'includePaths' => 
+  array (
+  ),
+  'repository' => NULL,
+  'uniqueName' => 'cpsit/ihkof-bundle-dev-feature/conductor',
+  'notificationUrl' => NULL,
+)';
+    
     private function __construct()
     {
+    }
+    
+    public static function getProperty(string $key) {
+        if (!isset self::PROPERTIES[$key]) {
+            throw new \OutOfBoundsException(
+                'Required key "' . $key . '" is not valid: property not found in package'
+            );
+        }
     }
 }

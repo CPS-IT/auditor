@@ -59,7 +59,7 @@ namespace Cpsit\Conductor;
 %s
 {
     const ROOT_PACKAGE_NAME = '%s';
-    const PROPERTIES = '%s';
+    const PROPERTIES = %s;
     
     private function __construct()
     {
