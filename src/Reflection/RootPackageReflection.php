@@ -34,8 +34,8 @@ class RootPackageReflection
 
         foreach ($allowedProperties as $propertyName) {
             $methodName = 'get' . ucfirst($propertyName);
-            if (method_exists($package, $methodName)) {
-                $properties[$propertyName] = $package->{$methodName};
+            if (is_callable([$package, $methodName])) {
+                $properties[$propertyName] = $package->{$methodName}();
             }
         }
         return $properties;
