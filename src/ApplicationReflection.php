@@ -11,7 +11,7 @@ namespace Cpsit\Conductor;
 final class ApplicationReflection
 {
     const ROOT_PACKAGE_NAME = 'cpsit/ihkof-bundle';
-    const PROPERTIES = array (
+    static protected $properties = array (
   'aliases' => 
   array (
   ),
@@ -2449,7 +2449,7 @@ final class ApplicationReflection
     }
     
     public static function getProperty(string $key) {
-        if (!isset self::PROPERTIES[$key]) {
+        if (!isset self::$properties[$key]) {
             throw new \OutOfBoundsException(
                 'Required key "' . $key . '" is not valid: property not found in package'
             );

@@ -31,7 +31,6 @@ interface RootPackageReflectionInterface
         'references',
         'preferStable',
         'config',
-        'requires',
         'scripts',
         'repositories',
         'license',

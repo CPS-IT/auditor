@@ -24,6 +24,10 @@ use Cpsit\Conductor\RootPackageReflectionInterface;
 class RootPackageReflection
 {
 
+    static protected $foo = array(
+        'bar' => 'bas',
+        'foo' => array()
+    );
     /**
      * Gets all reflectable properties from Package
      * @param RootPackageInterface $package
