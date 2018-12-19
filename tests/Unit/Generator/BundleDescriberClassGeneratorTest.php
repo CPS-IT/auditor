@@ -116,7 +116,7 @@ class BundleDescriberClassGeneratorTest extends TestCase
         $invalidFilePath = 'bar/';
 
         $this->io->expects($this->once())->method('write')
-            ->with($this->subject::MESSAGE_INFO_LEAD . $this->subject::MESSAGE_DONE_APPLICATION_REFLECTION);
+            ->with($this->subject::MESSAGE_INFO_LEAD . $this->subject::MESSAGE_DONE_BUNDLE_DESCRIBER);
 
         $this->subject->writeFile();
     }

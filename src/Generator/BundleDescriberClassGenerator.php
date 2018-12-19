@@ -95,7 +95,7 @@ PHP;
         file_put_contents($filePath, $this->generateSource($properties));
         chmod($filePath, 0664);
 
-        $this->getIo()->write(self::MESSAGE_INFO_LEAD . self::MESSAGE_DONE_APPLICATION_REFLECTION);
+        $this->getIo()->write(self::MESSAGE_INFO_LEAD . self::MESSAGE_DONE_BUNDLE_DESCRIBER);
     }
 
     /**
@@ -120,7 +120,7 @@ PHP;
     protected function generateSource($properties): string {
         return sprintf(
             self::$generatedClassTemplate,
-            'fin' . 'al ' . 'cla' . 'ss ' . SI::APPLICATION_REFLECTIION_CLASS, // note: workaround for regex-based code parsers :-(
+            'fin' . 'al ' . 'cla' . 'ss ' . SI::BUNDLE_DESCRIBER_CLASS, // note: workaround for regex-based code parsers :-(
             var_export($properties, true)
         );
     }
@@ -132,7 +132,7 @@ PHP;
     protected function getFilePath(): string
     {
         return $this->getInstallPathLocator()->getInstallPath() . '/'
-            . SI::SOURCE_FOLDER_NAME . '/' . SI::APPLICATION_REFLECTIION_CLASS . '.php';
+            . SI::SOURCE_FOLDER_NAME . '/' . SI::BUNDLE_DESCRIBER_CLASS . '.php';
     }
 
 }
