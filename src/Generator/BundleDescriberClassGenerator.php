@@ -29,10 +29,9 @@ use CPSIT\Conductor\SettingsInterface as SI;
 class BundleDescriberClassGenerator
 {
     public const MESSAGE_INFO_LEAD = '<info>' . SI::PACKAGE_IDENTIFIER . '</info> :';
-    public const ERROR_ROOT_PACKAGE_NOT_FOUND = 'Package not found (probably scheduled for removal); generation of application reflection class skipped.';
-    public const MESSAGE_GENERATE_APPLICATION_REFLECTION = 'Generate application reflection class...';
-    public const MESSAGE_DONE_APPLICATION_REFLECTION = '...done generating application reflection class';
-
+    public const ERROR_ROOT_PACKAGE_NOT_FOUND = ' Package not found (probably scheduled for removal); generation of application reflection class skipped.';
+    public const MESSAGE_GENERATE_BUNDLE_DESCRIBER = ' Generate bundle describer class...';
+    public const MESSAGE_DONE_BUNDLE_DESCRIBER = ' bundle describer class generated';
 
     private static $generatedClassTemplate = <<<'PHP'
 <?php
