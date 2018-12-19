@@ -132,7 +132,7 @@ PHP;
      */
     protected function getFilePath(): string
     {
-        return $this->getInstallPathLocator()->getInstallPath()
+        return $this->getInstallPathLocator()->getInstallPath() . '/'
             . SI::SOURCE_FOLDER_NAME . '/' . SI::APPLICATION_REFLECTIION_CLASS . '.php';
     }
 
