@@ -32,7 +32,5 @@ script:
   if [[ "$COVERAGE" == "1" ]]; then
     echo;
     echo "Running unit tests";
-    .build/bin/phpunit --colors tests/Unit/ \
-    --coverage-clover .build/log/coverage/clover.xml \
-    --log-junit .Build/log/junit.xml
+    .build/bin/phpunit --colors -c tests/Build/UnitTests.xml tests/Unit/
   fi
