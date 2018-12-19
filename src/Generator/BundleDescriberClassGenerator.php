@@ -24,9 +24,9 @@ use CPSIT\Conductor\Reflection\InstallPathLocator;
 use CPSIT\Conductor\SettingsInterface as SI;
 
 /**
- * Class ApplicationReflectionClassGenerator
+ * Class BundleDescriberClassGenerator
  */
-class ApplicationReflectionClassGenerator
+class BundleDescriberClassGenerator
 {
     public const MESSAGE_INFO_LEAD = '<info>' . SI::PACKAGE_IDENTIFIER . '</info> :';
     public const ERROR_ROOT_PACKAGE_NOT_FOUND = 'Package not found (probably scheduled for removal); generation of application reflection class skipped.';
@@ -75,7 +75,7 @@ PHP;
     protected $io;
 
     /**
-     * ApplicationReflectionClassGenerator constructor.
+     * BundleDescriberClassGenerator constructor.
      * @param Composer $composer
      */
     public function __construct(Composer $composer, IOInterface $io)
@@ -115,7 +115,7 @@ PHP;
     }
 
     /**
-     * Generates the source for the ApplicationReflection class
+     * Generates the source for the BundleDescriber class
      * @return string
      */
     protected function generateSource($properties): string {

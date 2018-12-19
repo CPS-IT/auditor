@@ -30,7 +30,7 @@ use Composer\Package\RootPackageInterface;
 use Composer\Plugin\PluginInterface;
 use Composer\Script\Event;
 use Composer\Script\ScriptEvents;
-use CPSIT\Conductor\Generator\ApplicationReflectionClassGenerator;
+use CPSIT\Conductor\Generator\BundleDescriberClassGenerator;
 use CPSIT\Conductor\Reflection\RootPackageReflection;
 use CPSIT\Conductor\SettingsInterface as SI;
 
@@ -40,7 +40,7 @@ use CPSIT\Conductor\SettingsInterface as SI;
 final class Installer implements PluginInterface, EventSubscriberInterface
 {
 
-    public const ENTRY_METHOD_NAME = 'dumpApplicationReflectionClass';
+    public const ENTRY_METHOD_NAME = 'dumpBundleDescriberClass';
 
     /**
      * {@inheritDoc}
@@ -64,11 +64,11 @@ final class Installer implements PluginInterface, EventSubscriberInterface
     /**
      * @param Event $composerEvent
      */
-    public static function dumpApplicationReflectionClass(Event $composerEvent)
+    public static function dumpBundleDescriberClass(Event $composerEvent)
     {
         $composer = $composerEvent->getComposer();
         $properties = RootPackageReflection::getProperties($composer->getPackage());
-        $generator = new ApplicationReflectionClassGenerator($composer, $composerEvent->getIO());
+        $generator = new BundleDescriberClassGenerator($composer, $composerEvent->getIO());
         $generator->writeFile($properties);
     }
 

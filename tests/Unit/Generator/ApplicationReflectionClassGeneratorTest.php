@@ -21,18 +21,18 @@ namespace CPSIT\Conductor\Tests\Unit\Generator;
 
 use Composer\Composer;
 use Composer\IO\IOInterface;
-use CPSIT\Conductor\Generator\ApplicationReflectionClassGenerator;
+use CPSIT\Conductor\Generator\BundleDescriberClassGenerator;
 use CPSIT\Conductor\Reflection\InstallPathLocator;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Class ApplicationReflectionClassGeneratorTest
+ * Class BundleDescriberClassGeneratorTest
  */
-class ApplicationReflectionClassGeneratorTest extends TestCase
+class BundleDescriberClassGeneratorTest extends TestCase
 {
     /**
-     * @var ApplicationReflectionClassGenerator|MockObject
+     * @var BundleDescriberClassGenerator|MockObject
      */
     protected $subject;
 
@@ -59,7 +59,7 @@ class ApplicationReflectionClassGeneratorTest extends TestCase
             ->setMethods(['write'])
             ->getMockForAbstractClass();
 
-        $this->subject = $this->getMockBuilder(ApplicationReflectionClassGenerator::class)
+        $this->subject = $this->getMockBuilder(BundleDescriberClassGenerator::class)
             ->setMethods(['dummy'])
             ->setConstructorArgs([$this->composer, $this->io])
             ->getMock();
@@ -94,7 +94,7 @@ class ApplicationReflectionClassGeneratorTest extends TestCase
     {
         $invalidFilePath = '/bar/baz.boo';
 
-        $this->subject = $this->getMockBuilder(ApplicationReflectionClassGenerator::class)
+        $this->subject = $this->getMockBuilder(BundleDescriberClassGenerator::class)
             ->setMethods(['getFilePath'])
             ->setConstructorArgs([$this->composer, $this->io])
             ->getMock();
