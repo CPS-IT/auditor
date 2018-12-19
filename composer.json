@@ -20,19 +20,19 @@
   },
   "autoload": {
     "psr-4": {
-      "Cpsit\\Conductor\\": "src"
+      "CPSIT\\Conductor\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Cpsit\\Conductor\\Tests\\": "tests/ConductorTest"
+      "CPSIT\\Conductor\\Tests\\": "tests/ConductorTest"
     }
   },
   "extra": {
-        "class": "Cpsit\\Conductor\\Installer"
+        "class": "CPSIT\\Conductor\\Installer"
     },
   "scripts": {
-    "post-update-cmd": "Cpsit\\Conductor\\Installer::dumpApplicationReflectionClass",
-    "post-install-cmd": "Cpsit\\Conductor\\Installer::dumpApplicationReflectionClass"
+    "post-update-cmd": "CPSIT\\Conductor\\Installer::dumpApplicationReflectionClass",
+    "post-install-cmd": "CPSIT\\Conductor\\Installer::dumpApplicationReflectionClass"
   }
 }

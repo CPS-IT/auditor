@@ -1,6 +1,6 @@
 <?php
 
-namespace Cpsit\Conductor\Tests\Unit\Generator;
+namespace CPSIT\Conductor\Tests\Unit\Generator;
 
 /***************************************************************
  *  Copyright notice
@@ -21,8 +21,8 @@ namespace Cpsit\Conductor\Tests\Unit\Generator;
 
 use Composer\Composer;
 use Composer\IO\IOInterface;
-use Cpsit\Conductor\Generator\ApplicationReflectionClassGenerator;
-use Cpsit\Conductor\Reflection\InstallPathLocator;
+use CPSIT\Conductor\Generator\ApplicationReflectionClassGenerator;
+use CPSIT\Conductor\Reflection\InstallPathLocator;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 

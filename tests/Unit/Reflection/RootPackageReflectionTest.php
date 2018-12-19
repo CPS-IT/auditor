@@ -1,9 +1,9 @@
 <?php
 
-namespace Cpsit\Conductor\Tests\Unit\Reflection;
+namespace CPSIT\Conductor\Tests\Unit\Reflection;
 use Composer\Package\RootPackageInterface;
-use Cpsit\Conductor\Reflection\RootPackageReflection;
-use Cpsit\Conductor\RootPackageReflectionInterface;
+use CPSIT\Conductor\Reflection\RootPackageReflection;
+use CPSIT\Conductor\RootPackageReflectionInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 

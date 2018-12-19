@@ -1,6 +1,6 @@
 <?php
 
-namespace Cpsit\Conductor\Reflection;
+namespace CPSIT\Conductor\Reflection;
 
 /**
  * This file is part of the TYPO3 CMS project.
@@ -19,7 +19,7 @@ use Composer\Composer;
 use Composer\Config;
 use Composer\Package\AliasPackage;
 use Composer\Package\RootPackageInterface;
-use Cpsit\Conductor\SettingsInterface as SI;
+use CPSIT\Conductor\SettingsInterface as SI;
 
 /**
  * Class InstallPathLocator

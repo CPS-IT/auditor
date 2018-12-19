@@ -16,7 +16,7 @@
  * This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-namespace Cpsit\Conductor;
+namespace CPSIT\Conductor;
 
 
 interface SettingsInterface
