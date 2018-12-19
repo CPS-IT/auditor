@@ -96,7 +96,7 @@ PHP;
         file_put_contents($filePath, $this->generateSource($properties));
         chmod($filePath, 0664);
 
-        $io->write(self::MESSAGE_INFO_LEAD . self::MESSAGE_DONE_APPLICATION_REFLECTION);
+        $this->getIo()->write(self::MESSAGE_INFO_LEAD . self::MESSAGE_DONE_APPLICATION_REFLECTION);
     }
 
     /**
