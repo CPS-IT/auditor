@@ -29,10 +29,6 @@
     }
   },
   "extra": {
-        "class": "CPSIT\\Conductor\\Installer"
-    },
-  "scripts": {
-    "post-update-cmd": "CPSIT\\Conductor\\Installer::dumpApplicationReflectionClass",
-    "post-install-cmd": "CPSIT\\Conductor\\Installer::dumpApplicationReflectionClass"
+    "class": "CPSIT\\Conductor\\Installer"
   }
 }
