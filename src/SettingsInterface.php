@@ -25,4 +25,5 @@ interface SettingsInterface
     public const KEY_VENDOR_DIR = 'vendor-dir';
     public const BUNDLE_DESCRIBER_CLASS = 'BundleDescriber';
     public const SOURCE_FOLDER_NAME = 'src';
+    public const NAME_SPACE = 'CPSIT\Auditor';
 }
