@@ -1,10 +1,11 @@
 <?php
+
 namespace CPSIT\Auditor;
 
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2018 Dirk Wenzel <wenzel@cps-it.de>
+ *  (c) 2019 Dirk Wenzel <wenzel@cps-it.de>
  *  All rights reserved
  *
  * The GNU General Public License can be found at
@@ -18,21 +19,31 @@ namespace CPSIT\Auditor;
  * This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-
-/**
- * Interface DescriberInterface
- */
-interface DescriberInterface
+trait DescriberTrait
 {
     /**
      * @param string $key
      * @return mixed
      */
-    public static function getProperty(string $key);
+    public static function getProperty(string $key)
+    {
+        if (!self::hasProperty($key)) {
+            throw new \OutOfBoundsException(
+                'Required key "' . $key . '" is not valid: property not found in package'
+            );
+        }
+        return self::$properties[$key];
+    }
 
     /**
      * @param string $key
      * @return boolean
      */
-    public static function hasProperty(string $key):bool;
+    public static function hasProperty(string $key):bool
+    {
+        return (
+            property_exists(self::class, 'properties')
+            && array_key_exists($key, self::$properties)
+        );
+    }
 }

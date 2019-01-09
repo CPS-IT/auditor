@@ -44,21 +44,14 @@ namespace CPSIT\Auditor;
  *
  * This file is overwritten at every run of `composer install` or `composer update`.
  */
-%s
+%s implements DescriberInterface
 {
+    use DescriberTrait;
     static protected $properties = %s;
     
     private function __construct()
     {
-    }
-    
-    public static function getProperty(string $key) {
-        if (!isset (self::$properties[$key])) {
-            throw new \OutOfBoundsException(
-                'Required key "' . $key . '" is not valid: property not found in package'
-            );
-        }
-    }
+    }    
 }
 
 PHP;
