@@ -25,17 +25,25 @@ trait DescriberTrait
      * @param string $key
      * @return mixed
      */
-    public function getProperty(string $key) {
-        if ($this->hasProperty($key)) {
-            return $this->{$key};
+    static public function getProperty(string $key)
+    {
+        if (!self::hasProperty($key)) {
+            throw new \OutOfBoundsException(
+                'Required key "' . $key . '" is not valid: property not found in package'
+            );
         }
+        return self::$properties[$key];
     }
 
     /**
      * @param string $key
      * @return boolean
      */
-    public function hasProperty(string $key) {
-        return property_exists(get_class($this), $key);
+    static public function hasProperty(string $key)
+    {
+        return (
+            property_exists(self::class, 'properties')
+            && array_key_exists($key, self::$properties)
+        );
     }
 }

@@ -28,11 +28,11 @@ interface DescriberInterface
      * @param string $key
      * @return mixed
      */
-    public function getProperty(string $key);
+    static public function getProperty(string $key);
 
     /**
      * @param string $key
      * @return boolean
      */
-    public function hasProperty(string $key);
+    static public function hasProperty(string $key);
 }
