@@ -1,6 +1,6 @@
 {
-  "name": "cpsit/conductor",
-  "description": "Orchestrates PHP application bundles.",
+  "name": "cpsit/auditor",
+  "description": "Audit PHP application bundles.",
   "license": "GPL-2.0-or-later",
   "type": "composer-plugin",
   "require": {
@@ -29,15 +29,15 @@
   },
   "autoload": {
     "psr-4": {
-      "CPSIT\\Conductor\\": "src"
+      "CPSIT\\Auditor\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "CPSIT\\Conductor\\Tests\\": "tests/ConductorTest"
+      "CPSIT\\Auditor\\Tests\\": "tests/"
     }
   },
   "extra": {
-    "class": "CPSIT\\Conductor\\Installer"
+    "class": "CPSIT\\Auditor\\Installer"
   }
 }

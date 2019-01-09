@@ -1,3 +1,4 @@
+
 <?php
 /***************************************************************
  *  Copyright notice
@@ -18,11 +19,20 @@
 
 namespace CPSIT\Auditor;
 
-
-interface SettingsInterface
+/**
+ * Interface DescriberInterface
+ */
+interface DescriberInterface
 {
-    public const PACKAGE_IDENTIFIER = 'cpsit/auditor';
-    public const KEY_VENDOR_DIR = 'vendor-dir';
-    public const BUNDLE_DESCRIBER_CLASS = 'BundleDescriber';
-    public const SOURCE_FOLDER_NAME = 'src';
+    /**
+     * @param string $key
+     * @return mixed
+     */
+    public function getProperty(string $key);
+
+    /**
+     * @param string $key
+     * @return mixed
+     */
+    public function hasProperty(string $key)
 }
