@@ -1,5 +1,6 @@
-
 <?php
+namespace CPSIT\Auditor;
+
 /***************************************************************
  *  Copyright notice
  *
@@ -17,7 +18,6 @@
  * This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-namespace CPSIT\Auditor;
 
 /**
  * Interface DescriberInterface
@@ -28,11 +28,11 @@ interface DescriberInterface
      * @param string $key
      * @return mixed
      */
-    static public function getProperty(string $key);
+    public static function getProperty(string $key);
 
     /**
      * @param string $key
      * @return boolean
      */
-    static public function hasProperty(string $key);
+    public static function hasProperty(string $key):bool;
 }
