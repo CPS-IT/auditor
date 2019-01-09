@@ -1,9 +1,11 @@
-
 <?php
+
+namespace CPSIT\Auditor;
+
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2018 Dirk Wenzel <wenzel@cps-it.de>
+ *  (c) 2019 Dirk Wenzel <wenzel@cps-it.de>
  *  All rights reserved
  *
  * The GNU General Public License can be found at
@@ -17,22 +19,23 @@
  * This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-namespace CPSIT\Auditor;
-
-/**
- * Interface DescriberInterface
- */
-interface DescriberInterface
+trait DescriberTrait
 {
     /**
      * @param string $key
      * @return mixed
      */
-    public function getProperty(string $key);
+    public function getProperty(string $key) {
+        if ($this->hasProperty($key)) {
+            return $this->{$key};
+        }
+    }
 
     /**
      * @param string $key
      * @return boolean
      */
-    public function hasProperty(string $key);
+    public function hasProperty(string $key) {
+        return property_exists(get_class($this), $key);
+    }
 }

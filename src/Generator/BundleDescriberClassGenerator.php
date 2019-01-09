@@ -44,8 +44,9 @@ namespace CPSIT\Auditor;
  *
  * This file is overwritten at every run of `composer install` or `composer update`.
  */
-%s
+%s implements DescriberInterface
 {
+    use DescriberTrait;
     static protected $properties = %s;
     
     private function __construct()
