@@ -1,3 +1,7 @@
+2019-01-09         [RELEASE] Release of auditor 0.2.0 (Dirk Wenzel)
+2019-01-09 7f4c3b6 [TASK] project renamed to auditor, DescriberInterface implemented (Dirk Wenzel)
+2018-12-19 2977c93 [BUGFIX] invalid class constant replaced (Dirk Wenzel)
+
 2018-12-19         [RELEASE] Release of conductor 0.1.0 (Dirk Wenzel)
 2018-12-19 afcd562 [DOC] Readme added (Dirk Wenzel)
 2018-12-19 f949a4c [TASK] test class for BundleDescriberGenerator renamed (Dirk Wenzel)
@@ -29,5 +33,3 @@
 2018-12-18 7226922 [TASK] Installer stub implemented (WIP) (Dirk Wenzel)
 2018-12-18 487e6ec [TASK] require composer-plugin-api, ocramius/package-version Installer added (WIP) (Dirk Wenzel)
 2018-12-18 1cc1223 Create composer.json (Dirk Wenzel)
-
-
