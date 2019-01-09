@@ -1,6 +1,6 @@
 <?php
 
-namespace CPSIT\Conductor;
+namespace CPSIT\Auditor;
 
 /***************************************************************
  *  Copyright notice
@@ -30,9 +30,9 @@ use Composer\Package\RootPackageInterface;
 use Composer\Plugin\PluginInterface;
 use Composer\Script\Event;
 use Composer\Script\ScriptEvents;
-use CPSIT\Conductor\Generator\BundleDescriberClassGenerator;
-use CPSIT\Conductor\Reflection\RootPackageReflection;
-use CPSIT\Conductor\SettingsInterface as SI;
+use CPSIT\Auditor\Generator\BundleDescriberClassGenerator;
+use CPSIT\Auditor\Reflection\RootPackageReflection;
+use CPSIT\Auditor\SettingsInterface as SI;
 
 /**
  * Class Installer

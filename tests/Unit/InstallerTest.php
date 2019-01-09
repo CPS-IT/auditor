@@ -1,12 +1,12 @@
 <?php
 
-namespace CPSIT\Conductor\Tests\Unit;
+namespace CPSIT\Auditor\Tests\Unit;
 
 use Composer\Composer;
 use Composer\EventDispatcher\EventDispatcher;
 use Composer\IO\IOInterface;
 use Composer\Script\ScriptEvents;
-use CPSIT\Conductor\Installer;
+use CPSIT\Auditor\Installer;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
