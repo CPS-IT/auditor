@@ -13,7 +13,7 @@
 	verbose="false">
 
 	<testsuites>
-		<testsuite name="conductor tests">
+		<testsuite name="auditor tests">
 			<directory>../Unit/</directory>
 		</testsuite>
 	</testsuites>

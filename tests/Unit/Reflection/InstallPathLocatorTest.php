@@ -1,6 +1,6 @@
 <?php
 
-namespace CPSIT\Conductor\Tests\Unit\Reflection;
+namespace CPSIT\Auditor\Tests\Unit\Reflection;
 
 /***************************************************************
  *  Copyright notice
@@ -22,10 +22,10 @@ namespace CPSIT\Conductor\Tests\Unit\Reflection;
 use Composer\Composer;
 use Composer\Config;
 use Composer\Package\RootPackageInterface;
-use CPSIT\Conductor\Reflection\InstallPathLocator;
+use CPSIT\Auditor\Reflection\InstallPathLocator;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
-use CPSIT\Conductor\SettingsInterface as SI;
+use CPSIT\Auditor\SettingsInterface as SI;
 
 /**
  * Class InstallPathLocatorTest

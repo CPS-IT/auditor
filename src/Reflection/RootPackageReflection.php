@@ -1,8 +1,8 @@
 <?php
 
-namespace CPSIT\Conductor\Reflection;
+namespace CPSIT\Auditor\Reflection;
 use Composer\Package\RootPackageInterface;
-use CPSIT\Conductor\RootPackageReflectionInterface;
+use CPSIT\Auditor\RootPackageReflectionInterface;
 
 /***************************************************************
  *  Copyright notice
