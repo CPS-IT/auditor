@@ -25,7 +25,7 @@ trait DescriberTrait
      * @param string $key
      * @return mixed
      */
-    static public function getProperty(string $key)
+    public static function getProperty(string $key)
     {
         if (!self::hasProperty($key)) {
             throw new \OutOfBoundsException(
@@ -39,7 +39,7 @@ trait DescriberTrait
      * @param string $key
      * @return boolean
      */
-    static public function hasProperty(string $key)
+    public static function hasProperty(string $key):bool
     {
         return (
             property_exists(self::class, 'properties')
