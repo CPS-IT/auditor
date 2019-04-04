@@ -40,6 +40,6 @@ script:
     echo;
     echo "Running unit tests";
     .build/bin/phpunit --colors -c tests/Build/UnitTests.xml tests/Unit/
+    rm -rf .build/vendor/ .build/bin/
     sonar-scanner -Dproject.settings=.sonar-project.properties
   fi
-
