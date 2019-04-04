@@ -1,3 +1,8 @@
+2019-04-04         [RELEASE] Release of auditor 0.4.0 (Dirk Wenzel)
+2019-04-04 598acbb [TASK] Reflection/PackageVersions implemented (Dirk Wenzel)
+2019-03-02 6c119bf [BUGFIX] missing sonar configuration file added, option for phpunit corrected (Dirk Wenzel)
+2019-03-02 8a1149b [CI] configuration for sonar scanner added (Dirk Wenzel)
+
 2019-01-09         [RELEASE] Release of auditor 0.3.0 (Dirk Wenzel)
 2019-01-09 151114e [BUGFIX] ensure matching return type of method hasProperty in DescriberTrait (Dirk Wenzel)
 2019-01-09 18b13a1 [BUGFIX] namespace declaration corrected (Dirk Wenzel)
