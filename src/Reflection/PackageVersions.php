@@ -1,13 +1,11 @@
 <?php
 
 namespace CPSIT\Auditor\Reflection;
-use Composer\Package\RootPackageInterface;
-use CPSIT\Auditor\RootPackageReflectionInterface;
 
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2018 Dirk Wenzel <wenzel@cps-it.de>
+ *  (c) 2019 Dirk Wenzel <wenzel@cps-it.de>
  *  All rights reserved
  *
  * The GNU General Public License can be found at
@@ -20,24 +18,36 @@ use CPSIT\Auditor\RootPackageReflectionInterface;
  * GNU General Public License for more details.
  * This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use CPSIT\Auditor\Dto\Package;
+use PackageVersions\Versions;
 
-class RootPackageReflection
+/**
+ * Class PackageVersions
+ */
+class PackageVersions
 {
-    /**
-     * Gets all available properties from Package
-     * @param RootPackageInterface $package
-     * @return array
-     */
-    static public function getProperties(RootPackageInterface $package) :array {
-        $properties = [];
-        $allowedProperties = RootPackageReflectionInterface::SUPPORTED_PACKAGE_PROPERTIES;
+    const VERSION_SEPATOR = '@';
 
-        foreach ($allowedProperties as $propertyName) {
-            $methodName = 'get' . ucfirst($propertyName);
-            if (is_callable([$package, $methodName])) {
-                $properties[$propertyName] = $package->{$methodName}();
-            }
+    public static function getAll($versions = [])
+    {
+        if (empty($versions)) {
+            $versions = Versions::VERSIONS;
         }
-        return $properties;
+        $packages = [];
+
+        foreach ($versions as $key => $value) {
+            if (false === strpos($value, static::VERSION_SEPATOR)) {
+                continue;
+            }
+            $package = new Package();
+            $info = explode(static::VERSION_SEPATOR, $value);
+            $package->setName($key)
+                ->setVersion($info[0])
+                ->setSourceReference($info[1]);
+
+            $packages[] = $package;
+        }
+
+        return $packages;
     }
 }
