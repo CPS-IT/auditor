@@ -12,6 +12,13 @@ env:
   global:
     - secure: S8QheEMVpSRsPPIhYQZ4tUCTbxpM7csZ0GydJaPY8p/FAEnZLiH6xcsiTGKOljva5HDelCdBvunaWtUO/+CdKIgsdbQGbqc1aWmG6gr+ShQk4X3KzeAA91AFmkJOR6Jv69lUTm6Uo9AKs1JtuVZsOa1aoOmfApohqFuXsRBNXlg=
 
+jdk:
+  - oraclejdk8
+
+addons:
+  sonarcloud:
+    organisation: cps-it
+
 cache:
   directories:
     - $HOME/.composer/cache
@@ -33,4 +40,6 @@ script:
     echo;
     echo "Running unit tests";
     .build/bin/phpunit --colors -c tests/Build/UnitTests.xml tests/Unit/
+    sonar-scanner -Dproject.settings=.sonar-project.properties
   fi
+
