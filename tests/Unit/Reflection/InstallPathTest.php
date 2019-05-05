@@ -22,18 +22,18 @@ namespace CPSIT\Auditor\Tests\Unit\Reflection;
 use Composer\Composer;
 use Composer\Config;
 use Composer\Package\RootPackageInterface;
-use CPSIT\Auditor\Reflection\InstallPathLocator;
+use CPSIT\Auditor\Reflection\InstallPath;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use CPSIT\Auditor\SettingsInterface as SI;
 
 /**
- * Class InstallPathLocatorTest
+ * Class InstallPathTest
  */
-class InstallPathLocatorTest extends TestCase
+class InstallPathTest extends TestCase
 {
     /**
-     * @var InstallPathLocator
+     * @var InstallPath
      */
     protected $subject;
 
@@ -43,69 +43,42 @@ class InstallPathLocatorTest extends TestCase
     protected $composer;
 
     /**
+     * @var Config
+     */
+    protected $composerConfig;
+
+    /**
      * {@inheritdoc}
      */
     public function setUp()/* The :void return type declaration that should be here would cause a BC issue */
     {
         parent::setUp();
-        $this->composer = $this->getMockBuilder(Composer::class)
-            ->setMethods(['getConfig', 'getPackage'])
-            ->disableOriginalConstructor()
-            ->getMock();
-        $this->subject = new InstallPathLocator($this->composer);
-    }
-
-    /**
-     * @test
-     */
-    public function constructorSetsConfigFromComposer() {
-        $config = $this->getMockBuilder(Config::class)->getMock();
-
-        $this->composer->expects($this->once())->method('getConfig')->willReturn($config);
-
-        $this->subject->__construct($this->composer);
-        $this->assertSame(
-            $config,
-            $this->subject->getComposerConfig()
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function constructorSetsRootPackageFromComposer() {
-        $rootPackage = $this->getMockBuilder(RootPackageInterface::class)->getMock();
-
-        $this->composer->expects($this->once())->method('getPackage')->willReturn($rootPackage);
-
-        $this->subject->__construct($this->composer);
-        $this->assertSame(
-            $rootPackage,
-            $this->subject->getRootPackage()
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function getInstallPathReturnsPathFromComposerConfig() {
-        $vendorDir = 'foo';
-
-        $config = $this->getMockBuilder(Config::class)
+        $this->composerConfig = $this->getMockBuilder(Config::class)
             ->setMethods(['get'])
             ->getMock();
+        $this->composer = $this->getMockBuilder(Composer::class)
+            ->setMethods(['getConfig'])
+            ->disableOriginalConstructor()
+            ->getMock();
+        $this->composer->method('getConfig')
+            ->willReturn($this->composerConfig);
+        $this->subject = new InstallPath($this->composer);
+    }
+
+    /**
+     * @test
+     */
+    public function testToStringReturnsPackagePathInVendorFolderFromComposerConfig() {
+        $vendorDir = 'foo';
+
         $expectedPath = $vendorDir . '/' . SI::PACKAGE_IDENTIFIER;
-        $config->expects($this->once())->method('get')
+        $this->composerConfig->expects($this->once())->method('get')
             ->with(SI::KEY_VENDOR_DIR)
             ->willReturn($vendorDir);
 
-        $this->composer->expects($this->once())->method('getConfig')->willReturn($config);
-
-        $this->subject->__construct($this->composer);
-
         $this->assertSame(
             $expectedPath,
-            $this->subject->getInstallPath()
+            $this->subject->toString()
         );
     }
 }

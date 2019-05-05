@@ -20,7 +20,7 @@ namespace CPSIT\Auditor\Generator;
 
 use Composer\Composer;
 use Composer\IO\IOInterface;
-use CPSIT\Auditor\Reflection\InstallPathLocator;
+use CPSIT\Auditor\Reflection\InstallPath;
 use CPSIT\Auditor\SettingsInterface as SI;
 
 /**
@@ -58,9 +58,9 @@ namespace CPSIT\Auditor;
 PHP;
 
     /**
-     * @var InstallPathLocator
+     * @var InstallPath
      */
-    protected $installPathLocator;
+    protected $installPath;
 
     /**
      * @var IOInterface
@@ -70,10 +70,11 @@ PHP;
     /**
      * BundleDescriberClassGenerator constructor.
      * @param Composer $composer
+     * @param IOInterface $io
      */
     public function __construct(Composer $composer, IOInterface $io)
     {
-        $this->installPathLocator = new InstallPathLocator($composer);
+        $this->installPath = new InstallPath($composer);
         $this->io = $io;
     }
 
@@ -86,29 +87,14 @@ PHP;
 
 
         if (!file_exists(dirname($filePath))) {
-            $this->getIo()->write(self::MESSAGE_INFO_LEAD . self::ERROR_ROOT_PACKAGE_NOT_FOUND);
+            $this->io->write(self::MESSAGE_INFO_LEAD . self::ERROR_ROOT_PACKAGE_NOT_FOUND);
             return;
         }
 
         file_put_contents($filePath, $this->generateSource($properties, $installedPackages));
         chmod($filePath, 0664);
 
-        $this->getIo()->write(self::MESSAGE_INFO_LEAD . self::MESSAGE_DONE_BUNDLE_DESCRIBER);
-    }
-
-    /**
-     * @return InstallPathLocator
-     */
-    public function getInstallPathLocator(): InstallPathLocator {
-        return $this->installPathLocator;
-    }
-
-    /**
-     * @return IOInterface
-     */
-    public function getIo(): IOInterface
-    {
-        return $this->io;
+        $this->io->write(self::MESSAGE_INFO_LEAD . self::MESSAGE_DONE_BUNDLE_DESCRIBER);
     }
 
     /**
@@ -132,7 +118,7 @@ PHP;
      */
     protected function getFilePath(): string
     {
-        return $this->getInstallPathLocator()->getInstallPath() . '/'
+        return $this->installPath->toString() . '/'
             . SI::SOURCE_FOLDER_NAME . '/' . SI::BUNDLE_DESCRIBER_CLASS . '.php';
     }
 

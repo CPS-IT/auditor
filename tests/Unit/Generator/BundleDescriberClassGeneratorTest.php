@@ -22,7 +22,7 @@ namespace CPSIT\Auditor\Tests\Unit\Generator;
 use Composer\Composer;
 use Composer\IO\IOInterface;
 use CPSIT\Auditor\Generator\BundleDescriberClassGenerator;
-use CPSIT\Auditor\Reflection\InstallPathLocator;
+use CPSIT\Auditor\Reflection\InstallPath;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
@@ -63,28 +63,6 @@ class BundleDescriberClassGeneratorTest extends TestCase
             ->setMethods(['dummy'])
             ->setConstructorArgs([$this->composer, $this->io])
             ->getMock();
-    }
-
-    /**
-     * @test
-     */
-    public function constructorSetsInstallPathLocator()
-    {
-        $this->assertInstanceOf(
-            InstallPathLocator::class,
-            $this->subject->getInstallPathLocator()
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function constructorSetsIO()
-    {
-        $this->assertInstanceOf(
-            IOInterface::class,
-            $this->subject->getIo()
-        );
     }
 
     /**
