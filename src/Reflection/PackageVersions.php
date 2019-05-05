@@ -26,7 +26,7 @@ use PackageVersions\Versions;
  */
 class PackageVersions
 {
-    const VERSION_SEPATOR = '@';
+    const VERSION_SEPARATOR = '@';
 
     public static function getAll($versions = [])
     {
@@ -36,11 +36,11 @@ class PackageVersions
         $packages = [];
 
         foreach ($versions as $key => $value) {
-            if (false === strpos($value, static::VERSION_SEPATOR)) {
+            if (false === strpos($value, static::VERSION_SEPARATOR)) {
                 continue;
             }
             $package = new Package();
-            $info = explode(static::VERSION_SEPATOR, $value);
+            $info = explode(static::VERSION_SEPARATOR, $value);
             $package->setName($key)
                 ->setVersion($info[0])
                 ->setSourceReference($info[1]);

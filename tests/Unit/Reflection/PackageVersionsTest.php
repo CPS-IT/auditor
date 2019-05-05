@@ -38,7 +38,7 @@ class PackageVersionsTest extends TestCase
         $sourceReference = '8afa52cd417f4ec417b4bfe86b68106538a87660';
 
         $versions = [
-            $name => $version . PackageVersions::VERSION_SEPATOR . $sourceReference
+            $name => $version . PackageVersions::VERSION_SEPARATOR . $sourceReference
         ];
 
         $packages = PackageVersions::getAll($versions);

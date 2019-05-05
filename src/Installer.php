@@ -68,8 +68,9 @@ final class Installer implements PluginInterface, EventSubscriberInterface
     {
         $composer = $composerEvent->getComposer();
         $properties = RootPackageReflection::getProperties($composer->getPackage());
+        $installedPackages = $composer->getRepositoryManager()->getLocalRepository()->getPackages();
         $generator = new BundleDescriberClassGenerator($composer, $composerEvent->getIO());
-        $generator->writeFile($properties);
+        $generator->writeFile($properties, $installedPackages);
     }
 
 }

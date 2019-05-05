@@ -5,7 +5,7 @@ namespace CPSIT\Auditor\Dto;
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2019 Dirk Wenzel <wenzel@cps-it.de>
+ *  (c) 2019 Dirk Wenzel
  *  All rights reserved
  *
  * The GNU General Public License can be found at
@@ -18,40 +18,22 @@ namespace CPSIT\Auditor\Dto;
  * GNU General Public License for more details.
  * This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
-class Package
+
+/**
+ * Class NullPackage
+ */
+final class NullPackage extends Package
 {
-    /**
-     * @var string
-     */
-    protected $name = '';
-
-    /**
-     * @var string
-     */
-    protected $version = '';
-
-    /**
-     * @var string
-     */
-    protected $sourceReference = '';
-
-    public function __construct(array $info = [])
-    {
-        if (!empty($info['version'])) {
-            $this->version = $info['version'];
-        }
-        if (!empty($info['name'])) {
-            $this->name = $info['name'];
-        }
-
-    }
+    const NAME = 'NullPackageName';
+    const VERSION = 'NullPackageVersion';
+    const SOURCE_REFERENCE = 'NullPackageSourceReference';
 
     /**
      * @return string
      */
     public function getName(): string
     {
-        return $this->name;
+        return self::NAME;
     }
 
     /**
@@ -60,8 +42,6 @@ class Package
      */
     public function setName(string $name): Package
     {
-        $this->name = $name;
-
         return $this;
     }
 
@@ -70,7 +50,7 @@ class Package
      */
     public function getVersion(): string
     {
-        return $this->version;
+        return self::VERSION;
     }
 
     /**
@@ -79,8 +59,6 @@ class Package
      */
     public function setVersion(string $version): Package
     {
-        $this->version = $version;
-
         return $this;
     }
 
@@ -89,7 +67,7 @@ class Package
      */
     public function getSourceReference(): string
     {
-        return $this->sourceReference;
+        return self::SOURCE_REFERENCE;
     }
 
     /**
@@ -98,8 +76,6 @@ class Package
      */
     public function setSourceReference(string $sourceReference): Package
     {
-        $this->sourceReference = $sourceReference;
-
         return $this;
     }
 }

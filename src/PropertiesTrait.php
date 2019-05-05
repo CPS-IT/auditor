@@ -29,7 +29,8 @@ trait PropertiesTrait
     {
         if (!self::hasProperty($key)) {
             throw new \OutOfBoundsException(
-                'Required key "' . $key . '" is not valid: property not found in package'
+                'Required key "' . $key . '" is not valid: property not found in package',
+                1557047730
             );
         }
         return self::$properties[$key];

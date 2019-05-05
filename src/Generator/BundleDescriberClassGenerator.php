@@ -48,6 +48,7 @@ namespace CPSIT\Auditor;
 {
     use PropertiesTrait;
     static protected $properties = %s;
+    static protected $installedPackages = %s;
     
     private function __construct()
     {
@@ -76,7 +77,11 @@ PHP;
         $this->io = $io;
     }
 
-    public function writeFile(array $properties = []) {
+    /**
+     * @param array $properties
+     * @param array $installedPackages
+     */
+    public function writeFile(array $properties = [], array $installedPackages = []) {
         $filePath = $this->getFilePath();
 
 
@@ -85,7 +90,7 @@ PHP;
             return;
         }
 
-        file_put_contents($filePath, $this->generateSource($properties));
+        file_put_contents($filePath, $this->generateSource($properties, $installedPackages));
         chmod($filePath, 0664);
 
         $this->getIo()->write(self::MESSAGE_INFO_LEAD . self::MESSAGE_DONE_BUNDLE_DESCRIBER);
@@ -108,13 +113,16 @@ PHP;
 
     /**
      * Generates the source for the BundleDescriber class
+     * @param array $properties
+     * @param array $installedPackages
      * @return string
      */
-    protected function generateSource($properties): string {
+    protected function generateSource(array $properties, array $installedPackages): string {
         return sprintf(
             self::$generatedClassTemplate,
             'fin' . 'al ' . 'cla' . 'ss ' . SI::BUNDLE_DESCRIBER_CLASS, // note: workaround for regex-based code parsers :-(
-            var_export($properties, true)
+            var_export($properties, true),
+            var_export($installedPackages, true)
         );
     }
 
