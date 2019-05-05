@@ -19,7 +19,7 @@ namespace CPSIT\Auditor;
  * This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-trait DescriberTrait
+trait PropertiesTrait
 {
     /**
      * @param string $key

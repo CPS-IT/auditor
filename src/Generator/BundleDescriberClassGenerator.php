@@ -46,7 +46,7 @@ namespace CPSIT\Auditor;
  */
 %s implements DescriberInterface
 {
-    use DescriberTrait;
+    use PropertiesTrait;
     static protected $properties = %s;
     
     private function __construct()
