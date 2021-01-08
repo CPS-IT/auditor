@@ -1,0 +1,63 @@
+name: Tests
+on: [push, pull_request]
+
+jobs:
+  tests:
+    name: PHP ${{ matrix.php-version }} & Composer ${{ matrix.composer-version }}
+
+    runs-on: ubuntu-18.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Composer 2.x
+          - php-version: 8.0
+            composer-version: 2
+          - php-version: 7.4
+            composer-version: 2
+            coverage: 1
+
+          # Composer 1.x
+          - php-version: 7.4
+            composer-version: 1
+          - php-version: 7.3
+            composer-version: 1
+          - php-version: 7.2
+            composer-version: 1
+          - php-version: 7.1
+            composer-version: 1
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Prepare environment
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          tools: composer:v${{ matrix.composer-version }}
+          coverage: xdebug
+
+      # Define Composer cache
+      - name: Define Composer cache
+        uses: actions/cache@v1
+        with:
+          path: ~/.composer/cache
+          key: tests-php-${{ matrix.php-version }}-composer-${{ matrix.composer-version }}
+          restore-keys: tests-php-${{ matrix.php-version }}-composer-
+
+      # Install Composer dependencies
+      - name: Install Composer dependencies
+        run: composer install --no-progress
+
+      # Run tests
+      - name: Run tests
+        run: composer test -- --coverage-text
+
+      # Report coverage
+      - name: Run SonarCloud scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        if: ${{ matrix.coverage }}
