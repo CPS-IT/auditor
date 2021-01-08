@@ -49,7 +49,7 @@ class BundleDescriberClassGeneratorTest extends TestCase
     /**
      * {@inheritDoc)
      */
-    public function setUp()/* The :void return type declaration that should be here would cause a BC issue */
+    public function setUp(): void
     {
         parent::setUp();
         $this->composer = $this->getMockBuilder(Composer::class)
@@ -68,7 +68,7 @@ class BundleDescriberClassGeneratorTest extends TestCase
     /**
      * @test
      */
-    public function writeFileWritesMessageForMissingFilePath()
+    public function writeFileWritesMessageForMissingFilePath(): void
     {
         $invalidFilePath = '/bar/baz.boo';
 
@@ -88,7 +88,7 @@ class BundleDescriberClassGeneratorTest extends TestCase
     /**
      * @test
      */
-    public function writeFileWritesMessageAfterGeneration()
+    public function writeFileWritesMessageAfterGeneration(): void
     {
         $this->markTestSkipped();
         $invalidFilePath = 'bar/';

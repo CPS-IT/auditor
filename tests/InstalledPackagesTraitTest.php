@@ -53,20 +53,20 @@ class InstalledPackagesTraitTest extends TestCase
         'foo' => ['bar']
     ];
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->subject = $this->getMockBuilder(InstalledPackagesTrait::class)
             ->getMockForTrait();
     }
 
-    public function testGetInstalledPackagesReturnsArray()
+    public function testGetInstalledPackagesReturnsArray(): void
     {
         $this->assertIsArray(
             $this->subject::getInstalledPackages()
         );
     }
 
-    public function testIsPackageInstalledReturnsTrueForInstalledPackage()
+    public function testIsPackageInstalledReturnsTrueForInstalledPackage(): void
     {
         $this->assertTrue(
             MockClassWithInstalledPackages::isPackageInstalled('foo')
@@ -76,7 +76,7 @@ class InstalledPackagesTraitTest extends TestCase
     /**
      * @covers ::isPackageInstalled
      */
-    public function testIsPackageInstalledReturnsFalseForMissingPackage()
+    public function testIsPackageInstalledReturnsFalseForMissingPackage(): void
     {
         $this->assertFalse(
             MockClassWithInstalledPackages::isPackageInstalled('anyPackageName')
@@ -88,7 +88,7 @@ class InstalledPackagesTraitTest extends TestCase
      * @expectedException \OutOfBoundsException
      * @expextedExceptionCode 1557047757
      */
-    public function testPropertyExistThrowsExceptionForMissingProperty()
+    public function testPropertyExistThrowsExceptionForMissingProperty(): void
     {
         $expectedMessage = sprintf(
             DescriberInterface::ERROR_MISSING_PROPERTY,
@@ -110,7 +110,7 @@ class InstalledPackagesTraitTest extends TestCase
     /**
      * @covers ::getInstalledPackage
      */
-    public function testGetInstalledPackageReturnsPackageObject()
+    public function testGetInstalledPackageReturnsPackageObject(): void
     {
         $this->assertInstanceOf(
             Package::class,

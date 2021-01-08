@@ -18,6 +18,8 @@ namespace CPSIT\Auditor\Reflection;
  * GNU General Public License for more details.
  * This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+
+use Composer\InstalledVersions;
 use CPSIT\Auditor\Dto\Package;
 use PackageVersions\Versions;
 
@@ -31,7 +33,7 @@ class PackageVersions
     public static function getAll($versions = [])
     {
         if (empty($versions)) {
-            $versions = Versions::VERSIONS;
+            $versions = static::parsePackageVersions();
         }
         $packages = [];
 
@@ -49,5 +51,14 @@ class PackageVersions
         }
 
         return $packages;
+    }
+
+    private static function parsePackageVersions(): array
+    {
+        if (defined(Versions::class . '::VERSIONS')) {
+            return Versions::VERSIONS;
+        }
+        $packages = InstalledVersions::getInstalledPackages();
+        return array_map([Versions::class, 'getVersion'], $packages);
     }
 }

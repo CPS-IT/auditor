@@ -1,30 +1,31 @@
-Auditor
-=========
+# Auditor
 
-This is a composer plugin. It allows to access information about the current (root) package.
+This is a Composer plugin. It allows to access information about the current (root) package.
 
-### Requirements
-* composer
+## Requirements
+
+* Composer
 * PHP >= 7.1
 
-### Usage
+### Version matrix
+
+|              | PHP 8.0 | PHP 7.4 | PHP 7.3 | PHP 7.2 | PHP 7.1 |
+| ------------ | ------- | ------- | ------- | ------- | ------- |
+| Composer 1.x | :x: | 0.5.x | 0.5.x | 0.1.0 - 0.5.x | 0.1.0 - 0.5.x
+| Composer 2.x | 0.5.x | 0.5.x | :x: | :x: | :x: |
+
+## Usage
 
 In your project root  
 
-````bash
+```bash
 composer require cpsit/auditor
-````
+```
 
-**Note:** The package is not yet available on packagist.org. 
-Please add `https://github.com/CPS-IT/auditor` to  the list of repositories in your 
-`composer.json`
-
-After installation or update via composer a class `CPSIT\Auditor\BundleDescriber` is generated.
+After installation or update via Composer a class `CPSIT\Auditor\BundleDescriber` is generated.
 
 It allows to access each property of your bundle (root package).
 
 ```php
 $name = \CPSIT\Auditor\BundleDescriber::getProperty('name');
-
 ```
-
