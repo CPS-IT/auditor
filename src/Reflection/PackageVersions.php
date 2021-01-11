@@ -55,10 +55,10 @@ class PackageVersions
 
     private static function parsePackageVersions(): array
     {
-        if (defined(Versions::class . '::VERSIONS')) {
-            return Versions::VERSIONS;
+        if (class_exists(InstalledVersions::class)) {
+            $packages = InstalledVersions::getInstalledPackages();
+            return array_map([Versions::class, 'getVersion'], $packages);
         }
-        $packages = InstalledVersions::getInstalledPackages();
-        return array_map([Versions::class, 'getVersion'], $packages);
+        return defined(Versions::class . '::VERSIONS') ? Versions::VERSIONS : [];
     }
 }

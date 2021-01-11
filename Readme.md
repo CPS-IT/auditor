@@ -11,8 +11,8 @@ This is a Composer plugin. It allows to access information about the current (ro
 
 |              | PHP 8.0 | PHP 7.4 | PHP 7.3 | PHP 7.2 | PHP 7.1 |
 | ------------ | ------- | ------- | ------- | ------- | ------- |
-| Composer 1.x | :x: | 0.5.x | 0.5.x | 0.1.0 - 0.5.x | 0.1.0 - 0.5.x
-| Composer 2.x | 0.5.x | 0.5.x | :x: | :x: | :x: |
+| Composer 1.x | 0.5.x | 0.5.x | 0.5.x | 0.1.0 - 0.5.x | 0.1.0 - 0.5.x
+| Composer 2.x | 0.5.x | 0.5.x | 0.5.x | 0.5.x | 0.5.x |
 
 ## Usage
 
