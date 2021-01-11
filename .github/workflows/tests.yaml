@@ -48,7 +48,7 @@ jobs:
 
       # Install Composer dependencies
       - name: Install Composer dependencies
-        run: composer install --no-progress
+        run: composer require --dev composer/composer:"^${{ matrix.composer-version }}" --no-progress
 
       # Run tests
       - name: Run tests
