@@ -22,6 +22,11 @@ namespace CPSIT\Auditor;
 trait PropertiesTrait
 {
     /**
+     * @var array|null
+     */
+    protected static $resolvedProperties;
+
+    /**
      * @param string $key
      * @return mixed
      */
@@ -33,18 +38,27 @@ trait PropertiesTrait
                 1557047730
             );
         }
-        return self::$properties[$key];
+        return static::$resolvedProperties[$key];
     }
 
-    /**
-     * @param string $key
-     * @return boolean
-     */
     public static function hasProperty(string $key):bool
     {
-        return (
-            property_exists(self::class, 'properties')
-            && array_key_exists($key, self::$properties)
-        );
+        if (!static::arePropertiesResolved()) {
+            static::resolveProperties();
+        }
+        return array_key_exists($key, static::$resolvedProperties ?? []);
+    }
+
+    protected static function arePropertiesResolved(): bool
+    {
+        return is_array(static::$resolvedProperties);
+    }
+
+    protected static function resolveProperties(): void
+    {
+        if (!property_exists(self::class, 'properties')) {
+            return;
+        }
+        static::$resolvedProperties = unserialize(self::$properties, ['allowed_classes' => false]) ?: [];
     }
 }
