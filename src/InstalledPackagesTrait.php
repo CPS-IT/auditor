@@ -72,11 +72,7 @@ trait InstalledPackagesTrait
         if (!self::isPackageInstalled($name)) {
             return null;
         }
-
-        $package = new Package(self::$installedPackages[$name]);
-
-        return $package;
-
+        return new Package(self::$installedPackages[$name]);
     }
 
     /**
