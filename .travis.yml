@@ -28,18 +28,18 @@ before_script:
   - composer install --no-progress
 
 script:
-- >
-  if [[ "$COVERAGE" != "1" ]]; then
-    echo;
-    echo "Running unit tests";
-    .build/bin/phpunit --colors tests/Unit/
-  fi
+  - >
+    if [[ "$COVERAGE" != "1" ]]; then
+      echo;
+      echo "Running unit tests";
+      .build/bin/phpunit --colors tests/Unit/
+    fi
 
-- >
-  if [[ "$COVERAGE" == "1" ]]; then
-    echo;
-    echo "Running unit tests";
-    .build/bin/phpunit --colors -c tests/Build/UnitTests.xml tests/Unit/
-    rm -rf .build/vendor/ .build/bin/
-    sonar-scanner -Dproject.settings=.sonar-project.properties
-  fi
+  - >
+    if [[ "$COVERAGE" == "1" ]]; then
+      echo;
+      echo "Running unit tests";
+      .build/bin/phpunit --colors -c tests/Build/UnitTests.xml tests/Unit/
+      rm -rf .build/vendor/ .build/bin/
+      sonar-scanner -Dproject.settings=sonar-project.properties
+    fi

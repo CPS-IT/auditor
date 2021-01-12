@@ -42,6 +42,7 @@ final class NullPackage extends Package
      */
     public function setName(string $name): Package
     {
+        // We ignore $name here since the package name is static
         return $this;
     }
 
@@ -59,6 +60,7 @@ final class NullPackage extends Package
      */
     public function setVersion(string $version): Package
     {
+        // We ignore $version here since the package version is static
         return $this;
     }
 
@@ -76,6 +78,7 @@ final class NullPackage extends Package
      */
     public function setSourceReference(string $sourceReference): Package
     {
+        // We ignore $sourceReference here since the packages' source reference is static
         return $this;
     }
 }

@@ -1,0 +1,15 @@
+{
+    "name": "cpsit/auditor-test-application",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "%APPLICATION_PATH%",
+            "options": {
+                "symlink": false
+            }
+        }
+    ],
+    "require": {
+        "cpsit/auditor": "*@dev"
+    }
+}

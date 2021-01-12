@@ -27,6 +27,11 @@ use CPSIT\Auditor\Dto\Package;
 trait InstalledPackagesTrait
 {
     /**
+     * @var array|null
+     */
+    protected static $resolvedPackages;
+
+    /**
      * @return array
      */
     static public function getInstalledPackages(): array
@@ -50,26 +55,24 @@ trait InstalledPackagesTrait
                 1557047757
             );
         }
-
-
+        if (!static::arePackagesResolved()) {
+            static::resolvePackages();
+        }
         return true;
     }
 
     /**
-     * Get a representation of a installed package
+     * Get a representation of an installed package
+     *
      * @param string $name
      * @return Package|null
      */
-    static public function getInstalledPackage(string $name): Package
+    static public function getInstalledPackage(string $name): ?Package
     {
         if (!self::isPackageInstalled($name)) {
             return null;
         }
-
-        $package = new Package(self::$installedPackages[$name]);
-
-        return $package;
-
+        return new Package(self::$installedPackages[$name]);
     }
 
     /**
@@ -82,5 +85,18 @@ trait InstalledPackagesTrait
     {
         self::propertyExists(DescriberInterface::INSTALLED_PACKAGES);
         return (array_key_exists($name, self::$installedPackages));
+    }
+
+    protected static function arePackagesResolved(): bool
+    {
+        return is_array(static::$resolvedPackages);
+    }
+
+    protected static function resolvePackages(): void
+    {
+        if (!property_exists(static::class, DescriberInterface::INSTALLED_PACKAGES)) {
+            return;
+        }
+        static::$resolvedPackages = unserialize(static::${DescriberInterface::INSTALLED_PACKAGES}) ?: [];
     }
 }

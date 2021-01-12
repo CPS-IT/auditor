@@ -50,7 +50,7 @@ class InstallPathTest extends TestCase
     /**
      * {@inheritdoc}
      */
-    public function setUp()/* The :void return type declaration that should be here would cause a BC issue */
+    public function setUp(): void
     {
         parent::setUp();
         $this->composerConfig = $this->getMockBuilder(Config::class)
@@ -68,7 +68,8 @@ class InstallPathTest extends TestCase
     /**
      * @test
      */
-    public function testToStringReturnsPackagePathInVendorFolderFromComposerConfig() {
+    public function testToStringReturnsPackagePathInVendorFolderFromComposerConfig(): void
+    {
         $vendorDir = 'foo';
 
         $expectedPath = $vendorDir . '/' . SI::PACKAGE_IDENTIFIER;

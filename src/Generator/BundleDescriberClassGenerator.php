@@ -47,8 +47,8 @@ namespace CPSIT\Auditor;
 %s implements DescriberInterface
 {
     use PropertiesTrait;
-    static protected $properties = %s;
-    static protected $installedPackages = %s;
+    static protected $properties = '%s';
+    static protected $installedPackages = '%s';
     
     private function __construct()
     {
@@ -103,12 +103,13 @@ PHP;
      * @param array $installedPackages
      * @return string
      */
-    protected function generateSource(array $properties, array $installedPackages): string {
+    protected function generateSource(array $properties, array $installedPackages): string
+    {
         return sprintf(
             self::$generatedClassTemplate,
             'fin' . 'al ' . 'cla' . 'ss ' . SI::BUNDLE_DESCRIBER_CLASS, // note: workaround for regex-based code parsers :-(
-            var_export($properties, true),
-            var_export($installedPackages, true)
+            addcslashes(serialize($properties), "'"),
+            addcslashes(serialize($installedPackages), "'")
         );
     }
 
