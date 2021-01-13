@@ -57,7 +57,7 @@ class PackageVersions
     {
         if (class_exists(InstalledVersions::class)) {
             $packages = InstalledVersions::getInstalledPackages();
-            return array_map([Versions::class, 'getVersion'], $packages);
+            return array_combine($packages, array_map([Versions::class, 'getVersion'], $packages));
         }
         return defined(Versions::class . '::VERSIONS') ? Versions::VERSIONS : [];
     }
