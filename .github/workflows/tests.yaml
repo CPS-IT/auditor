@@ -54,3 +54,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         if: ${{ matrix.coverage }}
+
+      # Upload test artifacts
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-php-${{ matrix.php-version }}-composer-${{ matrix.composer-version }}
+          path: /tmp/auditor_test_*/
+        if: ${{ failure() }}

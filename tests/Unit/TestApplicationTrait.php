@@ -46,6 +46,11 @@ trait TestApplicationTrait
      */
     protected $testApplicationPath;
 
+    /**
+     * @var bool
+     */
+    protected $keepTestApplication = false;
+
     protected function initializeTestApplication(): void
     {
         // Clean up previous test application
@@ -105,9 +110,15 @@ trait TestApplicationTrait
 
     protected function cleanUpTestApplication(): void
     {
-        if ($this->isTestApplicationInitialized()) {
+        if ($this->isTestApplicationInitialized() && !$this->keepTestApplication) {
             $filesystem = new Filesystem();
             $filesystem->remove($this->testApplicationPath);
         }
+    }
+
+    protected function onNotSuccessfulTest(\Throwable $t): void
+    {
+        $this->keepTestApplication = true;
+        parent::onNotSuccessfulTest($t);
     }
 }
