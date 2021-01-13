@@ -20,14 +20,12 @@ namespace CPSIT\Auditor\Tests\Unit\Generator;
  ***************************************************************/
 
 use Composer\Composer;
-use Composer\Factory;
-use Composer\Installer;
-use Composer\IO\BufferIO;
 use Composer\IO\IOInterface;
 use CPSIT\Auditor\BundleDescriber;
 use CPSIT\Auditor\Generator\BundleDescriberClassGenerator;
 use CPSIT\Auditor\Reflection\RootPackageReflection;
 use CPSIT\Auditor\SettingsInterface as SI;
+use CPSIT\Auditor\Tests\Unit\GeneratedFilesTrait;
 use CPSIT\Auditor\Tests\Unit\TestApplicationTrait;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
@@ -37,6 +35,7 @@ use PHPUnit\Framework\TestCase;
  */
 class BundleDescriberClassGeneratorTest extends TestCase
 {
+    use GeneratedFilesTrait;
     use TestApplicationTrait;
 
     /**
@@ -148,14 +147,6 @@ class BundleDescriberClassGeneratorTest extends TestCase
             ->with($this->subject::MESSAGE_INFO_LEAD . $this->subject::MESSAGE_DONE_BUNDLE_DESCRIBER);
 
         $this->subject->writeFile();
-    }
-
-    protected function cleanUpGeneratedFiles(): void
-    {
-        $describerClass = dirname(__DIR__, 3) . '/' . SI::SOURCE_FOLDER_NAME . '/' . SI::BUNDLE_DESCRIBER_CLASS . '.php';
-        if (file_exists($describerClass)) {
-            @unlink($describerClass);
-        }
     }
 
     protected function tearDown(): void
