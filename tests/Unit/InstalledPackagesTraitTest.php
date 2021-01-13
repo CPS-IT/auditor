@@ -5,7 +5,6 @@ namespace CPSIT\Auditor\Tests\Unit;
 use CPSIT\Auditor\DescriberInterface;
 use CPSIT\Auditor\Dto\Package;
 use CPSIT\Auditor\InstalledPackagesTrait;
-use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 /***************************************************************
@@ -25,19 +24,6 @@ use PHPUnit\Framework\TestCase;
  * This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-class MockClassWithPropertyInstalledPackages
-{
-    use InstalledPackagesTrait;
-
-    static protected $installedPackages = [
-        'foo' => ['bar']
-    ];
-}
-class MockClassWithoutPropertyInstalledPackage
-{
-    use InstalledPackagesTrait;
-}
-
 /**
  * Class InstalledPackagesTraitTest
  * @coversDefaultClass \CPSIT\Auditor\InstalledPackagesTrait
@@ -45,31 +31,40 @@ class MockClassWithoutPropertyInstalledPackage
 class InstalledPackagesTraitTest extends TestCase
 {
     /**
-     * @var InstalledPackagesTrait|MockObject
+     * @var InstalledPackagesTrait
      */
-    protected $subject;
+    protected $subjectWithPropertyInstalledPackages;
 
-    protected $packages = [
-        'foo' => ['bar']
-    ];
+    /**
+     * @var InstalledPackagesTrait
+     */
+    protected $subjectWithoutPropertyInstalledPackages;
 
     public function setUp(): void
     {
-        $this->subject = $this->getMockBuilder(InstalledPackagesTrait::class)
-            ->getMockForTrait();
+        $this->subjectWithPropertyInstalledPackages = new class()
+        {
+            use InstalledPackagesTrait;
+
+            protected static $installedPackages = 'a:1:{s:3:"foo";a:1:{i:0;s:3:"bar";}}';
+        };
+        $this->subjectWithoutPropertyInstalledPackages = new class()
+        {
+            use InstalledPackagesTrait;
+        };
     }
 
     public function testGetInstalledPackagesReturnsArray(): void
     {
-        $this->assertIsArray(
-            $this->subject::getInstalledPackages()
+        self::assertIsArray(
+            $this->subjectWithPropertyInstalledPackages::getInstalledPackages()
         );
     }
 
     public function testIsPackageInstalledReturnsTrueForInstalledPackage(): void
     {
-        $this->assertTrue(
-            MockClassWithInstalledPackages::isPackageInstalled('foo')
+        self::assertTrue(
+            $this->subjectWithPropertyInstalledPackages::isPackageInstalled('foo')
         );
     }
 
@@ -78,23 +73,22 @@ class InstalledPackagesTraitTest extends TestCase
      */
     public function testIsPackageInstalledReturnsFalseForMissingPackage(): void
     {
-        $this->assertFalse(
-            MockClassWithInstalledPackages::isPackageInstalled('anyPackageName')
+        self::assertFalse(
+            $this->subjectWithPropertyInstalledPackages::isPackageInstalled('anyPackageName')
         );
     }
 
     /**
      * @covers ::propertyExists
-     * @expectedException \OutOfBoundsException
-     * @expextedExceptionCode 1557047757
      */
     public function testPropertyExistThrowsExceptionForMissingProperty(): void
     {
         $expectedMessage = sprintf(
             DescriberInterface::ERROR_MISSING_PROPERTY,
             DescriberInterface::INSTALLED_PACKAGES,
-            MockClassWithoutPropertyInstalledPackage::class
+            get_class($this->subjectWithoutPropertyInstalledPackages)
         );
+
         $this->expectException(
             \OutOfBoundsException::class
         );
@@ -102,9 +96,10 @@ class InstalledPackagesTraitTest extends TestCase
             1557047757
         );
         $this->expectExceptionMessage(
-          $expectedMessage
+            $expectedMessage
         );
-        MockClassWithoutPropertyInstalledPackage::propertyExists(DescriberInterface::INSTALLED_PACKAGES);
+
+        $this->subjectWithoutPropertyInstalledPackages::propertyExists(DescriberInterface::INSTALLED_PACKAGES);
     }
 
     /**
@@ -112,9 +107,9 @@ class InstalledPackagesTraitTest extends TestCase
      */
     public function testGetInstalledPackageReturnsPackageObject(): void
     {
-        $this->assertInstanceOf(
+        self::assertInstanceOf(
             Package::class,
-            MockClassWithPropertyInstalledPackages::getInstalledPackage('foo')
+            $this->subjectWithPropertyInstalledPackages::getInstalledPackage('foo')
         );
     }
 }
