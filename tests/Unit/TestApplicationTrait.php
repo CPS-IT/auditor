@@ -23,6 +23,9 @@ declare(strict_types=1);
 
 namespace CPSIT\Auditor\Tests\Unit;
 
+use Composer\Factory;
+use Composer\Installer;
+use Composer\IO\BufferIO;
 use Symfony\Component\Filesystem\Filesystem;
 
 /**
@@ -66,10 +69,44 @@ trait TestApplicationTrait
         chdir($this->testApplicationPath);
     }
 
-    protected function cleanUpTestApplication(): void
+    protected function initializeComposer(): array
+    {
+        // Initialize test application if not done yet
+        if (!$this->isTestApplicationInitialized()) {
+            $this->initializeTestApplication();
+        }
+
+        // Initialize Composer
+        $io = new BufferIO();
+        $composer = (new Factory())->createComposer($io);
+
+        // Assert dependencies can be installed
+        static::assertSame(
+            0,
+            Installer::create($io, $composer)
+                ->setDevMode(false)
+                ->setPreferDist(true)
+                ->setVerbose(true)
+                ->run(),
+            sprintf('Unable to install Composer dependencies of test application (%s): %s', $this->testApplicationPath, $io->getOutput())
+        );
+
+        return [
+            'composer' => $composer,
+            'io' => $io,
+        ];
+    }
+
+    protected function isTestApplicationInitialized(): bool
     {
         $filesystem = new Filesystem();
-        if (is_string($this->testApplicationPath) && $filesystem->exists($this->testApplicationPath)) {
+        return is_string($this->testApplicationPath) && $filesystem->exists($this->testApplicationPath);
+    }
+
+    protected function cleanUpTestApplication(): void
+    {
+        if ($this->isTestApplicationInitialized()) {
+            $filesystem = new Filesystem();
             $filesystem->remove($this->testApplicationPath);
         }
     }

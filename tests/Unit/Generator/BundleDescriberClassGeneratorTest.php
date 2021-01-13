@@ -99,18 +99,7 @@ class BundleDescriberClassGeneratorTest extends TestCase
      */
     public function writeFileWritesContentsCorrectlyIntoFile(): void
     {
-        // Install Composer dependencies
-        $io = new BufferIO();
-        $composer = (new Factory())->createComposer($io);
-        static::assertSame(
-            0,
-            Installer::create($io, $composer)
-                ->setDevMode(false)
-                ->setPreferDist(true)
-                ->setVerbose(true)
-                ->run(),
-            sprintf('Unable to install Composer dependencies of test application (%s): %s', $this->testApplicationPath, $io->getOutput())
-        );
+        ['composer' => $composer, 'io' => $io] = $this->initializeComposer();
 
         // Create class with given contents
         $subject = new BundleDescriberClassGenerator($composer, $io);
