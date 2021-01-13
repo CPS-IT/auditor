@@ -24,21 +24,21 @@ use PHPUnit\Framework\TestCase;
 
 class PackageVersionsTest extends TestCase
 {
-    public function testGetAllReturnsArray()
+    public function testGetAllReturnsArray(): void
     {
         $this->assertIsArray(
             PackageVersions::getAll()
         );
     }
 
-    public function testGetAllReturnsPackagesArray()
+    public function testGetAllReturnsPackagesArray(): void
     {
         $name = 'composer/ca-bundle';
         $version = '1.1.3';
         $sourceReference = '8afa52cd417f4ec417b4bfe86b68106538a87660';
 
         $versions = [
-            $name => $version . PackageVersions::VERSION_SEPATOR . $sourceReference
+            $name => $version . PackageVersions::VERSION_SEPARATOR . $sourceReference
         ];
 
         $packages = PackageVersions::getAll($versions);

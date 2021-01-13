@@ -1,0 +1,56 @@
+name: Tests
+on: [push, pull_request]
+
+jobs:
+  tests:
+    name: PHP ${{ matrix.php-version }} & Composer ${{ matrix.composer-version }}
+
+    runs-on: ubuntu-18.04
+    strategy:
+      fail-fast: false
+      matrix:
+        php-version: [8.0, 7.4, 7.3, 7.2, 7.1]
+        composer-version: [2, 1]
+        include:
+          - php-version: 8.0
+            composer-version: 2
+            coverage: 1
+
+    steps:
+      - uses: actions/checkout@v2
+
+      # Prepare environment
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          tools: composer:v${{ matrix.composer-version }}
+          coverage: xdebug
+
+      # Define Composer cache
+      - name: Define Composer cache
+        uses: actions/cache@v1
+        with:
+          path: ~/.composer/cache
+          key: tests-php-${{ matrix.php-version }}-composer-${{ matrix.composer-version }}
+          restore-keys: tests-php-${{ matrix.php-version }}-composer-
+
+      # Install Composer dependencies
+      - name: Install Composer dependencies
+        run: composer require --dev composer/composer:"^${{ matrix.composer-version }}" --no-progress
+
+      # Run tests
+      - name: Run tests
+        run: composer test -- --coverage-text
+
+      # Report coverage
+      - name: Fix coverage path
+        working-directory: .build/log/coverage
+        run: sed -i 's/\/home\/runner\/work\/auditor\/auditor\//\/github\/workspace\//g' clover.xml
+        if: ${{ matrix.coverage }}
+      - name: Run SonarCloud scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        if: ${{ matrix.coverage }}

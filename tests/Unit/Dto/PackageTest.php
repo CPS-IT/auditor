@@ -32,13 +32,13 @@ class PackageTest extends TestCase
     /**
      * @inheritdoc
      */
-    public function setUp()/* The :void return type declaration that should be here would cause a BC issue */
+    public function setUp(): void
     {
         parent::setUp();
         $this->subject = new Package();
     }
 
-    public function testVersionIsInitiallyEmptyString()
+    public function testVersionIsInitiallyEmptyString(): void
     {
         $this->assertSame(
             '',
@@ -46,7 +46,7 @@ class PackageTest extends TestCase
         );
     }
 
-    public function testVersionCanBeSet()
+    public function testVersionCanBeSet(): void
     {
         $value = 'foo';
         $this->subject->setVersion($value);
@@ -57,7 +57,7 @@ class PackageTest extends TestCase
         );
     }
 
-    public function testNameIsInitiallyEmptyString()
+    public function testNameIsInitiallyEmptyString(): void
     {
         $this->assertSame(
             '',
@@ -65,7 +65,7 @@ class PackageTest extends TestCase
         );
     }
 
-    public function testNameCanBeSet()
+    public function testNameCanBeSet(): void
     {
         $value = 'foo';
         $this->subject->setName($value);
@@ -76,7 +76,7 @@ class PackageTest extends TestCase
         );
     }
 
-    public function testSourceReferenceIsInitiallyEmptyString()
+    public function testSourceReferenceIsInitiallyEmptyString(): void
     {
         $this->assertSame(
             '',
@@ -84,7 +84,7 @@ class PackageTest extends TestCase
         );
     }
 
-    public function testSourceReferenceCanBeSet()
+    public function testSourceReferenceCanBeSet(): void
     {
         $value = 'foo';
         $this->subject->setSourceReference($value);

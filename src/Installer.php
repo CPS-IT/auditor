@@ -20,19 +20,13 @@ namespace CPSIT\Auditor;
  ***************************************************************/
 
 use Composer\Composer;
-use Composer\Config;
 use Composer\EventDispatcher\EventSubscriberInterface;
 use Composer\IO\IOInterface;
-use Composer\Package\AliasPackage;
-use Composer\Package\Locker;
-use Composer\Package\PackageInterface;
-use Composer\Package\RootPackageInterface;
 use Composer\Plugin\PluginInterface;
 use Composer\Script\Event;
 use Composer\Script\ScriptEvents;
 use CPSIT\Auditor\Generator\BundleDescriberClassGenerator;
 use CPSIT\Auditor\Reflection\RootPackageReflection;
-use CPSIT\Auditor\SettingsInterface as SI;
 
 /**
  * Class Installer
@@ -68,8 +62,18 @@ final class Installer implements PluginInterface, EventSubscriberInterface
     {
         $composer = $composerEvent->getComposer();
         $properties = RootPackageReflection::getProperties($composer->getPackage());
+        $installedPackages = $composer->getRepositoryManager()->getLocalRepository()->getPackages();
         $generator = new BundleDescriberClassGenerator($composer, $composerEvent->getIO());
-        $generator->writeFile($properties);
+        $generator->writeFile($properties, $installedPackages);
     }
 
+    public function deactivate(Composer $composer, IOInterface $io): void
+    {
+        // Intentionally left blank.
+    }
+
+    public function uninstall(Composer $composer, IOInterface $io): void
+    {
+        // Intentionally left blank.
+    }
 }

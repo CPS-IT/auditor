@@ -20,7 +20,7 @@ namespace CPSIT\Auditor\Generator;
 
 use Composer\Composer;
 use Composer\IO\IOInterface;
-use CPSIT\Auditor\Reflection\InstallPathLocator;
+use CPSIT\Auditor\Reflection\InstallPath;
 use CPSIT\Auditor\SettingsInterface as SI;
 
 /**
@@ -46,8 +46,9 @@ namespace CPSIT\Auditor;
  */
 %s implements DescriberInterface
 {
-    use DescriberTrait;
-    static protected $properties = %s;
+    use PropertiesTrait;
+    static protected $properties = '%s';
+    static protected $installedPackages = '%s';
     
     private function __construct()
     {
@@ -57,9 +58,9 @@ namespace CPSIT\Auditor;
 PHP;
 
     /**
-     * @var InstallPathLocator
+     * @var InstallPath
      */
-    protected $installPathLocator;
+    protected $installPath;
 
     /**
      * @var IOInterface
@@ -69,52 +70,46 @@ PHP;
     /**
      * BundleDescriberClassGenerator constructor.
      * @param Composer $composer
+     * @param IOInterface $io
      */
     public function __construct(Composer $composer, IOInterface $io)
     {
-        $this->installPathLocator = new InstallPathLocator($composer);
+        $this->installPath = new InstallPath($composer);
         $this->io = $io;
     }
 
-    public function writeFile(array $properties = []) {
+    /**
+     * @param array $properties
+     * @param array $installedPackages
+     */
+    public function writeFile(array $properties = [], array $installedPackages = []) {
         $filePath = $this->getFilePath();
 
 
         if (!file_exists(dirname($filePath))) {
-            $this->getIo()->write(self::MESSAGE_INFO_LEAD . self::ERROR_ROOT_PACKAGE_NOT_FOUND);
+            $this->io->write(self::MESSAGE_INFO_LEAD . self::ERROR_ROOT_PACKAGE_NOT_FOUND);
             return;
         }
 
-        file_put_contents($filePath, $this->generateSource($properties));
+        file_put_contents($filePath, $this->generateSource($properties, $installedPackages));
         chmod($filePath, 0664);
 
-        $this->getIo()->write(self::MESSAGE_INFO_LEAD . self::MESSAGE_DONE_BUNDLE_DESCRIBER);
-    }
-
-    /**
-     * @return InstallPathLocator
-     */
-    public function getInstallPathLocator(): InstallPathLocator {
-        return $this->installPathLocator;
-    }
-
-    /**
-     * @return IOInterface
-     */
-    public function getIo(): IOInterface
-    {
-        return $this->io;
+        $this->io->write(self::MESSAGE_INFO_LEAD . self::MESSAGE_DONE_BUNDLE_DESCRIBER);
     }
 
     /**
      * Generates the source for the BundleDescriber class
+     * @param array $properties
+     * @param array $installedPackages
      * @return string
      */
-    protected function generateSource($properties): string {
+    protected function generateSource(array $properties, array $installedPackages): string
+    {
         return sprintf(
             self::$generatedClassTemplate,
             'fin' . 'al ' . 'cla' . 'ss ' . SI::BUNDLE_DESCRIBER_CLASS, // note: workaround for regex-based code parsers :-(
-            var_export($properties, true)
+            addcslashes(serialize($properties), "'"),
+            addcslashes(serialize($installedPackages), "'")
         );
     }
 
@@ -124,7 +119,7 @@ PHP;
      */
     protected function getFilePath(): string
     {
-        return $this->getInstallPathLocator()->getInstallPath() . '/'
+        return $this->installPath->toString() . '/'
             . SI::SOURCE_FOLDER_NAME . '/' . SI::BUNDLE_DESCRIBER_CLASS . '.php';
     }
 

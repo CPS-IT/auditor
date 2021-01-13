@@ -19,8 +19,13 @@ namespace CPSIT\Auditor;
  * This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-trait DescriberTrait
+trait PropertiesTrait
 {
+    /**
+     * @var array|null
+     */
+    protected static $resolvedProperties;
+
     /**
      * @param string $key
      * @return mixed
@@ -29,21 +34,31 @@ trait DescriberTrait
     {
         if (!self::hasProperty($key)) {
             throw new \OutOfBoundsException(
-                'Required key "' . $key . '" is not valid: property not found in package'
+                'Required key "' . $key . '" is not valid: property not found in package',
+                1557047730
             );
         }
-        return self::$properties[$key];
+        return static::$resolvedProperties[$key];
     }
 
-    /**
-     * @param string $key
-     * @return boolean
-     */
     public static function hasProperty(string $key):bool
     {
-        return (
-            property_exists(self::class, 'properties')
-            && array_key_exists($key, self::$properties)
-        );
+        if (!static::arePropertiesResolved()) {
+            static::resolveProperties();
+        }
+        return array_key_exists($key, static::$resolvedProperties ?? []);
+    }
+
+    protected static function arePropertiesResolved(): bool
+    {
+        return is_array(static::$resolvedProperties);
+    }
+
+    protected static function resolveProperties(): void
+    {
+        if (!property_exists(self::class, 'properties')) {
+            return;
+        }
+        static::$resolvedProperties = unserialize(self::$properties, ['allowed_classes' => false]) ?: [];
     }
 }

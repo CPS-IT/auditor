@@ -24,6 +24,9 @@ namespace CPSIT\Auditor;
  */
 interface DescriberInterface
 {
+    const INSTALLED_PACKAGES = 'installedPackages';
+    const ERROR_MISSING_PROPERTY = 'Required property "%s" does not exist in class "%s".';
+
     /**
      * @param string $key
      * @return mixed

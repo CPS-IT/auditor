@@ -58,7 +58,7 @@ class InstallerTest extends TestCase
             $events
         );
         foreach ($events as $callback) {
-            self::assertInternalType('callable', [$this->subject, $callback]);
+            self::assertIsCallable([$this->subject, $callback]);
         }
     }
 

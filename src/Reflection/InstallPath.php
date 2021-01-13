@@ -17,55 +17,31 @@ namespace CPSIT\Auditor\Reflection;
 
 use Composer\Composer;
 use Composer\Config;
-use Composer\Package\AliasPackage;
-use Composer\Package\RootPackageInterface;
 use CPSIT\Auditor\SettingsInterface as SI;
 
 /**
- * Class InstallPathLocator
+ * Class InstallPath
  */
-class InstallPathLocator
+class InstallPath
 {
     /**
      * @var Config
      */
     protected $composerConfig;
-
     /**
-     * @var RootPackageInterface
-     */
-    protected $rootPackage;
-
-    /**
-     * InstallPathLocator constructor.
+     * InstallPath constructor.
      * @param Composer $composer
      */
     public function __construct(Composer $composer)
     {
         $this->composerConfig = $composer->getConfig();
-        $this->rootPackage = $composer->getPackage();
     }
 
     /**
      * @return string
      */
-    public function getInstallPath(): string {
-        return $this->getComposerConfig()->get(SI::KEY_VENDOR_DIR) . '/' . SI::PACKAGE_IDENTIFIER;
-    }
-
-    /**
-     * @return Config
-     */
-    public function getComposerConfig(): Config {
-        return $this->composerConfig;
-    }
-
-    /**
-     * @return RootPackageInterface
-     */
-    public function getRootPackage(): RootPackageInterface
-    {
-        return $this->rootPackage;
+    public function toString(): string {
+        return $this->composerConfig->get(SI::KEY_VENDOR_DIR) . '/' . SI::PACKAGE_IDENTIFIER;
     }
 
 }

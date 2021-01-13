@@ -20,9 +20,15 @@ namespace CPSIT\Auditor\Tests\Unit\Generator;
  ***************************************************************/
 
 use Composer\Composer;
+use Composer\Factory;
+use Composer\Installer;
+use Composer\IO\BufferIO;
 use Composer\IO\IOInterface;
+use CPSIT\Auditor\BundleDescriber;
 use CPSIT\Auditor\Generator\BundleDescriberClassGenerator;
-use CPSIT\Auditor\Reflection\InstallPathLocator;
+use CPSIT\Auditor\Reflection\RootPackageReflection;
+use CPSIT\Auditor\SettingsInterface as SI;
+use CPSIT\Auditor\Tests\Unit\TestApplicationTrait;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
@@ -31,6 +37,8 @@ use PHPUnit\Framework\TestCase;
  */
 class BundleDescriberClassGeneratorTest extends TestCase
 {
+    use TestApplicationTrait;
+
     /**
      * @var BundleDescriberClassGenerator|MockObject
      */
@@ -49,9 +57,8 @@ class BundleDescriberClassGeneratorTest extends TestCase
     /**
      * {@inheritDoc)
      */
-    public function setUp()/* The :void return type declaration that should be here would cause a BC issue */
+    public function setUp(): void
     {
-        parent::setUp();
         $this->composer = $this->getMockBuilder(Composer::class)
             ->disableOriginalConstructor()
             ->getMock();
@@ -63,34 +70,15 @@ class BundleDescriberClassGeneratorTest extends TestCase
             ->setMethods(['dummy'])
             ->setConstructorArgs([$this->composer, $this->io])
             ->getMock();
+
+        $this->cleanUpGeneratedFiles();
+        $this->initializeTestApplication();
     }
 
     /**
      * @test
      */
-    public function constructorSetsInstallPathLocator()
-    {
-        $this->assertInstanceOf(
-            InstallPathLocator::class,
-            $this->subject->getInstallPathLocator()
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function constructorSetsIO()
-    {
-        $this->assertInstanceOf(
-            IOInterface::class,
-            $this->subject->getIo()
-        );
-    }
-
-    /**
-     * @test
-     */
-    public function writeFileWritesMessageForMissingFilePath()
+    public function writeFileWritesMessageForMissingFilePath(): void
     {
         $invalidFilePath = '/bar/baz.boo';
 
@@ -110,7 +98,48 @@ class BundleDescriberClassGeneratorTest extends TestCase
     /**
      * @test
      */
-    public function writeFileWritesMessageAfterGeneration()
+    public function writeFileWritesContentsCorrectlyIntoFile(): void
+    {
+        // Install Composer dependencies
+        $io = new BufferIO();
+        $composer = (new Factory())->createComposer($io);
+        static::assertSame(
+            0,
+            Installer::create($io, $composer)
+                ->setDevMode(false)
+                ->setPreferDist(true)
+                ->setVerbose(true)
+                ->run(),
+            sprintf('Unable to install Composer dependencies of test application (%s): %s', $this->testApplicationPath, $io->getOutput())
+        );
+
+        // Create class with given contents
+        $subject = new BundleDescriberClassGenerator($composer, $io);
+        $properties = RootPackageReflection::getProperties($composer->getPackage());
+        $installedPackages = $composer->getRepositoryManager()->getLocalRepository()->getPackages();
+        $subject->writeFile($properties, $installedPackages);
+
+        // Check whether the class was generated successfully
+        $targetFileName = implode(DIRECTORY_SEPARATOR, [
+            $composer->getConfig()->get(SI::KEY_VENDOR_DIR),
+            SI::PACKAGE_IDENTIFIER,
+            SI::SOURCE_FOLDER_NAME,
+            SI::BUNDLE_DESCRIBER_CLASS . '.php',
+        ]);
+        self::assertFileExists($targetFileName);
+        self::assertTrue(class_exists(BundleDescriber::class));
+
+        // Check whether the class contains all relevant properties
+        foreach ($properties as $propertyKey => $propertyValue) {
+            self::assertTrue(BundleDescriber::hasProperty($propertyKey));
+            self::assertSame($propertyValue, BundleDescriber::getProperty($propertyKey));
+        }
+    }
+
+    /**
+     * @test
+     */
+    public function writeFileWritesMessageAfterGeneration(): void
     {
         $this->markTestSkipped();
         $invalidFilePath = 'bar/';
@@ -119,5 +148,18 @@ class BundleDescriberClassGeneratorTest extends TestCase
             ->with($this->subject::MESSAGE_INFO_LEAD . $this->subject::MESSAGE_DONE_BUNDLE_DESCRIBER);
 
         $this->subject->writeFile();
+    }
+
+    protected function cleanUpGeneratedFiles(): void
+    {
+        $describerClass = dirname(__DIR__, 3) . '/' . SI::SOURCE_FOLDER_NAME . '/' . SI::BUNDLE_DESCRIBER_CLASS . '.php';
+        if (file_exists($describerClass)) {
+            @unlink($describerClass);
+        }
+    }
+
+    protected function tearDown(): void
+    {
+        $this->cleanUpTestApplication();
     }
 }
