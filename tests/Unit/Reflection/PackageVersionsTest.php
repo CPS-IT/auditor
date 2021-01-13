@@ -2,8 +2,10 @@
 
 namespace CPSIT\Auditor\Tests\Unit\Reflection;
 
+use Composer\InstalledVersions;
 use CPSIT\Auditor\Dto\Package;
 use CPSIT\Auditor\Reflection\PackageVersions;
+use PackageVersions\Versions;
 use PHPUnit\Framework\TestCase;
 
 /***************************************************************
@@ -40,6 +42,32 @@ class PackageVersionsTest extends TestCase
         $packages = PackageVersions::getAll();
         self::assertPackageExists(new Package(['name' => 'cpsit/auditor']), $packages);
         self::assertPackageExists(new Package(['name' => 'composer/package-versions-deprecated']), $packages);
+    }
+
+    /**
+     * @test
+     */
+    public function getAllDoesNotReturnMetaPackages(): void
+    {
+        if (!class_exists(InstalledVersions::class)) {
+            $this->markTestSkipped('This test is only relevant in Composer 2.x environments.');
+        }
+
+        $packages = InstalledVersions::getInstalledPackages();
+        $packages = array_combine($packages, array_map([Versions::class, 'getVersion'], $packages));
+        $expected = array_filter($packages, function (string $version) {
+            return $version !== PackageVersions::VERSION_SEPARATOR;
+        });
+
+        $actual = PackageVersions::getAll();
+        $actual = array_map(function (Package $package) {
+            return $package->getName();
+        }, $actual);
+
+        self::assertSame(
+            array_keys($expected),
+            $actual
+        );
     }
 
     public function testGetAllReturnsPackagesArray(): void

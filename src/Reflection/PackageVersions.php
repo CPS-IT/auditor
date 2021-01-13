@@ -38,7 +38,7 @@ class PackageVersions
         $packages = [];
 
         foreach ($versions as $key => $value) {
-            if (false === strpos($value, static::VERSION_SEPARATOR)) {
+            if (false === strpos($value, static::VERSION_SEPARATOR) || $value === static::VERSION_SEPARATOR) {
                 continue;
             }
             $package = new Package();
