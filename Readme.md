@@ -1,3 +1,7 @@
+![Tests](https://github.com/CPS-IT/auditor/workflows/Tests/badge.svg)
+![Coverage](https://sonarcloud.io/api/project_badges/measure?project=CPS-IT_auditor&metric=coverage)
+![Code quality](https://sonarcloud.io/api/project_badges/measure?project=CPS-IT_auditor&metric=alert_status)
+
 # Auditor
 
 This is a Composer plugin. It allows to access information about the current (root) package.
