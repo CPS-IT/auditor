@@ -37,7 +37,7 @@ trait InstalledPackagesTrait
     static public function getInstalledPackages(): array
     {
         if (self::propertyExists(DescriberInterface::INSTALLED_PACKAGES)) {
-            return self::$installedPackages;
+            return self::$resolvedPackages;
         }
 
         return [];
@@ -56,7 +56,7 @@ trait InstalledPackagesTrait
             );
         }
         if (!static::arePackagesResolved()) {
-            static::resolvePackages();
+            static::resolvePackages($propertyName);
         }
         return true;
     }
@@ -72,7 +72,7 @@ trait InstalledPackagesTrait
         if (!self::isPackageInstalled($name)) {
             return null;
         }
-        return new Package(self::$installedPackages[$name]);
+        return new Package(self::$resolvedPackages[$name]);
     }
 
     /**
@@ -84,7 +84,7 @@ trait InstalledPackagesTrait
     static public function isPackageInstalled(string $name): bool
     {
         self::propertyExists(DescriberInterface::INSTALLED_PACKAGES);
-        return (array_key_exists($name, self::$installedPackages));
+        return (array_key_exists($name, self::$resolvedPackages));
     }
 
     protected static function arePackagesResolved(): bool
@@ -92,11 +92,11 @@ trait InstalledPackagesTrait
         return is_array(static::$resolvedPackages);
     }
 
-    protected static function resolvePackages(): void
+    protected static function resolvePackages(string $propertyName): void
     {
-        if (!property_exists(static::class, DescriberInterface::INSTALLED_PACKAGES)) {
+        if (!property_exists(static::class, $propertyName)) {
             return;
         }
-        static::$resolvedPackages = unserialize(static::${DescriberInterface::INSTALLED_PACKAGES}) ?: [];
+        static::$resolvedPackages = unserialize(static::${$propertyName}) ?: [];
     }
 }

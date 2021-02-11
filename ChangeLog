@@ -1,3 +1,13 @@
+2021-02-11         [RELEASE] Release of auditor 0.5.1 (Elias Häußler)
+2021-02-11 5b8e7a6 [DOCS] Add status badges to Readme (Elias Häußler)
+2021-01-13 6e75b6e [BUGFIX] Return only packages with associated version and/or reference (Elias Häußler)
+2021-01-13 cfe80dc [TASK] Keep test application on test failure and provide it as artifact (Elias Häußler)
+2021-01-13 b6c9398 [TASK] Move Composer initialization in Unit tests into dedicated trait (Elias Häußler)
+2021-01-13 e39f14b [TASK] Move clean-up of generated files into trait for shared usage (Elias Häußler)
+2021-01-13 35be9c2 [BUGFIX] Include package name when parsing package versions (Elias Häußler)
+2021-01-13 3060a2a [BUGFIX] Fix Unit test for `InstalledPackagesTrait` (Elias Häußler)
+2021-01-13 d408f35 [BUGFIX] Use `$resolvedPackages` when accessing installed packages (Elias Häußler)
+
 2021-01-13         [RELEASE] Release of auditor 0.5.0 (Elias Häußler)
 2021-01-11 38f8e99 [BUGFIX] Apply fixes for linting issues (Elias Häußler)
 2021-01-11 efc0155 [TASK] Add support for PHP 7.1+ with Composer 2.0 (Elias Häußler)

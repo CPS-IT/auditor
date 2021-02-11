@@ -1,8 +1,11 @@
 <?php
 
 namespace CPSIT\Auditor\Tests\Unit\Reflection;
+
+use Composer\InstalledVersions;
 use CPSIT\Auditor\Dto\Package;
 use CPSIT\Auditor\Reflection\PackageVersions;
+use PackageVersions\Versions;
 use PHPUnit\Framework\TestCase;
 
 /***************************************************************
@@ -26,8 +29,44 @@ class PackageVersionsTest extends TestCase
 {
     public function testGetAllReturnsArray(): void
     {
-        $this->assertIsArray(
+        self::assertIsArray(
             PackageVersions::getAll()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function getAllReturnsArrayOfAllInstalledPackages(): void
+    {
+        $packages = PackageVersions::getAll();
+        self::assertPackageExists(new Package(['name' => 'cpsit/auditor']), $packages);
+        self::assertPackageExists(new Package(['name' => 'composer/package-versions-deprecated']), $packages);
+    }
+
+    /**
+     * @test
+     */
+    public function getAllDoesNotReturnMetaPackages(): void
+    {
+        if (!class_exists(InstalledVersions::class)) {
+            $this->markTestSkipped('This test is only relevant in Composer 2.x environments.');
+        }
+
+        $packages = InstalledVersions::getInstalledPackages();
+        $packages = array_combine($packages, array_map([Versions::class, 'getVersion'], $packages));
+        $expected = array_filter($packages, function (string $version) {
+            return $version !== PackageVersions::VERSION_SEPARATOR;
+        });
+
+        $actual = PackageVersions::getAll();
+        $actual = array_map(function (Package $package) {
+            return $package->getName();
+        }, $actual);
+
+        self::assertSame(
+            array_keys($expected),
+            $actual
         );
     }
 
@@ -43,30 +82,42 @@ class PackageVersionsTest extends TestCase
 
         $packages = PackageVersions::getAll($versions);
 
-        $this->assertCount(
+        self::assertCount(
             1,
             $packages
         );
         /** @var Package $package */
         $package = $packages[0];
-        $this->assertInstanceOf(
+        self::assertInstanceOf(
             Package::class,
             $package
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $version,
             $package->getVersion()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $sourceReference,
             $package->getSourceReference()
         );
 
-        $this->assertEquals(
+        self::assertEquals(
             $name,
             $package->getName()
+        );
+    }
+
+    protected static function assertPackageExists(Package $expected, array $actual): void
+    {
+        $filterResult = array_filter($actual, function (Package $package) use ($expected) {
+            return $package->getName() === $expected->getName();
+        });
+        self::assertNotSame(
+            [],
+            $filterResult,
+            sprintf('"%s" was expected to be existent, but does not exist actually.', $expected->getName())
         );
     }
 }

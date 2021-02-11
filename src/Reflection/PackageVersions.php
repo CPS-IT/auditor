@@ -38,7 +38,7 @@ class PackageVersions
         $packages = [];
 
         foreach ($versions as $key => $value) {
-            if (false === strpos($value, static::VERSION_SEPARATOR)) {
+            if (false === strpos($value, static::VERSION_SEPARATOR) || $value === static::VERSION_SEPARATOR) {
                 continue;
             }
             $package = new Package();
@@ -57,7 +57,7 @@ class PackageVersions
     {
         if (class_exists(InstalledVersions::class)) {
             $packages = InstalledVersions::getInstalledPackages();
-            return array_map([Versions::class, 'getVersion'], $packages);
+            return array_combine($packages, array_map([Versions::class, 'getVersion'], $packages));
         }
         return defined(Versions::class . '::VERSIONS') ? Versions::VERSIONS : [];
     }
