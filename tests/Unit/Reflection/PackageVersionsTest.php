@@ -72,18 +72,11 @@ class PackageVersionsTest extends TestCase
 
     public function testGetAllReturnsPackagesArray(): void
     {
-        $name = 'composer/ca-bundle';
-        $version = '1.1.3';
-        $sourceReference = '8afa52cd417f4ec417b4bfe86b68106538a87660';
-
-        $versions = [
-            $name => $version . PackageVersions::VERSION_SEPARATOR . $sourceReference
-        ];
-
-        $packages = PackageVersions::getAll($versions);
+        $installed = InstalledVersions::getInstalledPackages();
+        $packages = PackageVersions::getAll();
 
         self::assertCount(
-            1,
+            count($installed),
             $packages
         );
         /** @var Package $package */
@@ -94,18 +87,13 @@ class PackageVersionsTest extends TestCase
         );
 
         self::assertEquals(
-            $version,
+            InstalledVersions::getVersion($package->getName()),
             $package->getVersion()
         );
 
         self::assertEquals(
-            $sourceReference,
+            InstalledVersions::getReference($package->getName()),
             $package->getSourceReference()
-        );
-
-        self::assertEquals(
-            $name,
-            $package->getName()
         );
     }
 

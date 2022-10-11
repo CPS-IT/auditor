@@ -30,20 +30,20 @@ class PackageVersions
 {
     const VERSION_SEPARATOR = '@';
 
-    public static function getAll($versions = [])
+    public static function getAll()
     {
-        if (empty($versions)) {
-            $versions = static::parsePackageVersions();
-        }
+        $versions = self::parsePackageVersions();
         $packages = [];
 
         foreach ($versions as $packageName => $installedVersion) {
-            $version = $installedVersion ?? 'n.a.';
+            if (null === $installedVersion) {
+                continue;
+            }
             $sourceReference = InstalledVersions::getReference($packageName) ?? 'n.a. (package is being replaced or provided but is not really installed)';
 
             $package = new Package();
             $package->setName($packageName)
-                ->setVersion($version)
+                ->setVersion($installedVersion)
                 ->setSourceReference($sourceReference);
 
             $packages[] = $package;
