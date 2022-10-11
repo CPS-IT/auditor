@@ -37,7 +37,7 @@ jobs:
 
       # Install Composer dependencies
       - name: Install Composer dependencies
-        run: composer config  --no-progress --no-plugins allow-plugins.cpsit/auditor true && composer require --dev composer/composer:"^${{ matrix.composer-version }}"
+        run: composer config --no-plugins allow-plugins.cpsit/auditor true && composer require --dev composer/composer:"^${{ matrix.composer-version }}" --no-progress
 
       # Run tests
       - name: Run tests
