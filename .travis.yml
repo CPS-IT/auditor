@@ -25,6 +25,7 @@ cache:
     - $HOME/.sonar/cache
 
 before_script:
+  - composer config --no-plugins allow-plugins.cpsit/auditor true
   - composer install --no-progress
 
 script:
