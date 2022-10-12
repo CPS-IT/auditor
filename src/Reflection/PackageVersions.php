@@ -28,8 +28,6 @@ use PackageVersions\Versions;
  */
 class PackageVersions
 {
-    const VERSION_SEPARATOR = '@';
-
     public static function getAll()
     {
         $versions = self::parsePackageVersions();
