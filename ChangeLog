@@ -1,3 +1,8 @@
+2022-10-12         [RELEASE] Release of auditor 0.6.1 (Dirk Wenzel)
+2022-10-12 2d4897f require php ^7.4 ||  ^8.0  || ^8.1 (Dirk Wenzel)
+2022-10-12 7ab5542 [CI] include php 8.1 in test matrix (Dirk Wenzel)
+2022-10-12 15bbe3a require php ^7.4 || ^8.1 (Dirk Wenzel)
+
 2022-10-12         [RELEASE] Release of auditor 0.6.0 (Dirk Wenzel)
 2022-10-12 08f2b78 [TASK] require dev composer/composer ^2.1.9 - documentation updated - code cleanup (Dirk Wenzel)
 2022-10-12 20faa4e [TASK] unit test configuration migrated (Dirk Wenzel)
