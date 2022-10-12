@@ -41,7 +41,6 @@ class PackageVersionsTest extends TestCase
     {
         $packages = PackageVersions::getAll();
         self::assertPackageExists(new Package(['name' => 'cpsit/auditor']), $packages);
-        self::assertPackageExists(new Package(['name' => 'composer/package-versions-deprecated']), $packages);
     }
 
     /**
@@ -49,14 +48,9 @@ class PackageVersionsTest extends TestCase
      */
     public function getAllDoesNotReturnMetaPackages(): void
     {
-        if (!class_exists(InstalledVersions::class)) {
-            $this->markTestSkipped('This test is only relevant in Composer 2.x environments.');
-        }
-
-        $packages = InstalledVersions::getInstalledPackages();
-        $packages = array_combine($packages, array_map([Versions::class, 'getVersion'], $packages));
-        $expected = array_filter($packages, function (string $version) {
-            return $version !== PackageVersions::VERSION_SEPARATOR;
+        $installedPackages = InstalledVersions::getInstalledPackages();
+        $expected = array_filter($installedPackages, function (string $packageName) {
+            return null !== InstalledVersions::getVersion($packageName);
         });
 
         $actual = PackageVersions::getAll();
@@ -64,19 +58,23 @@ class PackageVersionsTest extends TestCase
             return $package->getName();
         }, $actual);
 
-        self::assertSame(
-            array_keys($expected),
-            $actual
+        self::assertEquals(
+            sort($expected),
+            sort($actual)
         );
     }
 
     public function testGetAllReturnsPackagesArray(): void
     {
         $installed = InstalledVersions::getInstalledPackages();
+        $expected = array_filter($installed, function (string $packageName) {
+            return (null !== InstalledVersions::getVersion($packageName));
+        });
+
         $packages = PackageVersions::getAll();
 
         self::assertCount(
-            count($installed),
+            count($expected),
             $packages
         );
         /** @var Package $package */
