@@ -129,7 +129,7 @@ class BundleDescriberClassGeneratorTest extends TestCase
      */
     public function writeFileWritesMessageAfterGeneration(): void
     {
-        $this->markTestSkipped();
+        $this->markTestSkipped("Test fails due to missing composer config in InstallPath->toString()");
         $invalidFilePath = 'bar/';
 
         $this->io->expects($this->once())->method('write')
