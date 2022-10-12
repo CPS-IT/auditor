@@ -41,7 +41,6 @@ class PackageVersionsTest extends TestCase
     {
         $packages = PackageVersions::getAll();
         self::assertPackageExists(new Package(['name' => 'cpsit/auditor']), $packages);
-        self::assertPackageExists(new Package(['name' => 'composer/package-versions-deprecated']), $packages);
     }
 
     /**
@@ -49,14 +48,9 @@ class PackageVersionsTest extends TestCase
      */
     public function getAllDoesNotReturnMetaPackages(): void
     {
-        if (!class_exists(InstalledVersions::class)) {
-            $this->markTestSkipped('This test is only relevant in Composer 2.x environments.');
-        }
-
-        $packages = InstalledVersions::getInstalledPackages();
-        $packages = array_combine($packages, array_map([Versions::class, 'getVersion'], $packages));
-        $expected = array_filter($packages, function (string $version) {
-            return $version !== PackageVersions::VERSION_SEPARATOR;
+        $installedPackages = InstalledVersions::getInstalledPackages();
+        $expected = array_filter($installedPackages, function (string $packageName) {
+            return null !== InstalledVersions::getVersion($packageName);
         });
 
         $actual = PackageVersions::getAll();
@@ -64,26 +58,23 @@ class PackageVersionsTest extends TestCase
             return $package->getName();
         }, $actual);
 
-        self::assertSame(
-            array_keys($expected),
-            $actual
+        self::assertEquals(
+            sort($expected),
+            sort($actual)
         );
     }
 
     public function testGetAllReturnsPackagesArray(): void
     {
-        $name = 'composer/ca-bundle';
-        $version = '1.1.3';
-        $sourceReference = '8afa52cd417f4ec417b4bfe86b68106538a87660';
+        $installed = InstalledVersions::getInstalledPackages();
+        $expected = array_filter($installed, function (string $packageName) {
+            return (null !== InstalledVersions::getVersion($packageName));
+        });
 
-        $versions = [
-            $name => $version . PackageVersions::VERSION_SEPARATOR . $sourceReference
-        ];
-
-        $packages = PackageVersions::getAll($versions);
+        $packages = PackageVersions::getAll();
 
         self::assertCount(
-            1,
+            count($expected),
             $packages
         );
         /** @var Package $package */
@@ -94,18 +85,13 @@ class PackageVersionsTest extends TestCase
         );
 
         self::assertEquals(
-            $version,
+            InstalledVersions::getVersion($package->getName()),
             $package->getVersion()
         );
 
         self::assertEquals(
-            $sourceReference,
+            InstalledVersions::getReference($package->getName()),
             $package->getSourceReference()
-        );
-
-        self::assertEquals(
-            $name,
-            $package->getName()
         );
     }
 

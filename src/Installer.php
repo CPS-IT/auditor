@@ -21,6 +21,7 @@ namespace CPSIT\Auditor;
 
 use Composer\Composer;
 use Composer\EventDispatcher\EventSubscriberInterface;
+use Composer\InstalledVersions;
 use Composer\IO\IOInterface;
 use Composer\Plugin\PluginInterface;
 use Composer\Script\Event;
@@ -62,7 +63,7 @@ final class Installer implements PluginInterface, EventSubscriberInterface
     {
         $composer = $composerEvent->getComposer();
         $properties = RootPackageReflection::getProperties($composer->getPackage());
-        $installedPackages = $composer->getRepositoryManager()->getLocalRepository()->getPackages();
+        $installedPackages = InstalledVersions::getInstalledPackages();
         $generator = new BundleDescriberClassGenerator($composer, $composerEvent->getIO());
         $generator->writeFile($properties, $installedPackages);
     }

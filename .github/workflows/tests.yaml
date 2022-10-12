@@ -9,8 +9,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: [8.0, 7.4, 7.3, 7.2, 7.1]
-        composer-version: [2, 1]
+        php-version: [8.0, 7.4]
+        composer-version: [2]
         include:
           - php-version: 8.0
             composer-version: 2
@@ -37,7 +37,7 @@ jobs:
 
       # Install Composer dependencies
       - name: Install Composer dependencies
-        run: composer require --dev composer/composer:"^${{ matrix.composer-version }}" --no-progress
+        run: composer config --no-plugins allow-plugins.cpsit/auditor true && composer require --dev composer/composer:"^${{ matrix.composer-version }}" --no-progress
 
       # Run tests
       - name: Run tests

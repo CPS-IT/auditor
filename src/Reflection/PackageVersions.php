@@ -28,24 +28,21 @@ use PackageVersions\Versions;
  */
 class PackageVersions
 {
-    const VERSION_SEPARATOR = '@';
-
-    public static function getAll($versions = [])
+    public static function getAll()
     {
-        if (empty($versions)) {
-            $versions = static::parsePackageVersions();
-        }
+        $versions = self::parsePackageVersions();
         $packages = [];
 
-        foreach ($versions as $key => $value) {
-            if (false === strpos($value, static::VERSION_SEPARATOR) || $value === static::VERSION_SEPARATOR) {
+        foreach ($versions as $packageName => $installedVersion) {
+            if (null === $installedVersion) {
                 continue;
             }
+            $sourceReference = InstalledVersions::getReference($packageName) ?? 'n.a. (package is being replaced or provided but is not really installed)';
+
             $package = new Package();
-            $info = explode(static::VERSION_SEPARATOR, $value);
-            $package->setName($key)
-                ->setVersion($info[0])
-                ->setSourceReference($info[1]);
+            $package->setName($packageName)
+                ->setVersion($installedVersion)
+                ->setSourceReference($sourceReference);
 
             $packages[] = $package;
         }
@@ -55,10 +52,7 @@ class PackageVersions
 
     private static function parsePackageVersions(): array
     {
-        if (class_exists(InstalledVersions::class)) {
-            $packages = InstalledVersions::getInstalledPackages();
-            return array_combine($packages, array_map([Versions::class, 'getVersion'], $packages));
-        }
-        return defined(Versions::class . '::VERSIONS') ? Versions::VERSIONS : [];
+        $packages = InstalledVersions::getInstalledPackages();
+        return array_combine($packages, array_map([InstalledVersions::class, 'getVersion'], $packages));
     }
 }
