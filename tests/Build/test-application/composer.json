@@ -9,6 +9,11 @@
             }
         }
     ],
+    "config": {
+        "allow-plugins": {
+            "cpsit/auditor": true
+        }
+    },
     "require": {
         "cpsit/auditor": "*@dev"
     }
