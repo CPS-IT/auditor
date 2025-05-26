@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace CPSIT\Auditor;
 
 /***************************************************************
@@ -24,18 +27,10 @@ namespace CPSIT\Auditor;
  */
 interface DescriberInterface
 {
-    const INSTALLED_PACKAGES = 'installedPackages';
-    const ERROR_MISSING_PROPERTY = 'Required property "%s" does not exist in class "%s".';
+    public const INSTALLED_PACKAGES = 'installedPackages';
+    public const ERROR_MISSING_PROPERTY = 'Required property "%s" does not exist in class "%s".';
 
-    /**
-     * @param string $key
-     * @return mixed
-     */
-    public static function getProperty(string $key);
+    public static function getProperty(string $key): mixed;
 
-    /**
-     * @param string $key
-     * @return boolean
-     */
-    public static function hasProperty(string $key):bool;
+    public static function hasProperty(string $key): bool;
 }

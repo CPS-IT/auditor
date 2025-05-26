@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CPSIT\Auditor;
 
 use CPSIT\Auditor\Dto\Package;
@@ -26,15 +28,9 @@ use CPSIT\Auditor\Dto\Package;
  */
 trait InstalledPackagesTrait
 {
-    /**
-     * @var array|null
-     */
-    protected static $resolvedPackages;
+    protected static ?array $resolvedPackages = null;
 
-    /**
-     * @return array
-     */
-    static public function getInstalledPackages(): array
+    public static function getInstalledPackages(): array
     {
         if (self::propertyExists(DescriberInterface::INSTALLED_PACKAGES)) {
             return self::$resolvedPackages;
@@ -43,11 +39,7 @@ trait InstalledPackagesTrait
         return [];
     }
 
-    /**
-     * @param string $propertyName
-     * @return bool
-     */
-    static public function propertyExists(string $propertyName): bool
+    public static function propertyExists(string $propertyName): bool
     {
         if (!property_exists(self::class, DescriberInterface::INSTALLED_PACKAGES)) {
             throw new \OutOfBoundsException(
@@ -63,11 +55,8 @@ trait InstalledPackagesTrait
 
     /**
      * Get a representation of an installed package
-     *
-     * @param string $name
-     * @return Package|null
      */
-    static public function getInstalledPackage(string $name): ?Package
+    public static function getInstalledPackage(string $name): ?Package
     {
         if (!self::isPackageInstalled($name)) {
             return null;
@@ -77,14 +66,11 @@ trait InstalledPackagesTrait
 
     /**
      * Tells whether a package is installed
-     *
-     * @param string $name Package Name
-     * @return bool
      */
-    static public function isPackageInstalled(string $name): bool
+    public static function isPackageInstalled(string $name): bool
     {
         self::propertyExists(DescriberInterface::INSTALLED_PACKAGES);
-        return (array_key_exists($name, self::$resolvedPackages));
+        return array_key_exists($name, self::$resolvedPackages ?? []);
     }
 
     protected static function arePackagesResolved(): bool

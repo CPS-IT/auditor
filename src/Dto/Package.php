@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CPSIT\Auditor\Dto;
 
 /***************************************************************
@@ -20,20 +22,9 @@ namespace CPSIT\Auditor\Dto;
  ***************************************************************/
 class Package
 {
-    /**
-     * @var string
-     */
-    protected $name = '';
-
-    /**
-     * @var string
-     */
-    protected $version = '';
-
-    /**
-     * @var string
-     */
-    protected $sourceReference = '';
+    protected string $name = '';
+    protected string $version = '';
+    protected string $sourceReference = '';
 
     public function __construct(array $info = [])
     {
@@ -46,18 +37,11 @@ class Package
 
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     * @return Package
-     */
     public function setName(string $name): Package
     {
         $this->name = $name;
@@ -65,18 +49,11 @@ class Package
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getVersion(): string
     {
         return $this->version;
     }
 
-    /**
-     * @param string $version
-     * @return Package
-     */
     public function setVersion(string $version): Package
     {
         $this->version = $version;
@@ -84,18 +61,11 @@ class Package
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getSourceReference(): string
     {
         return $this->sourceReference;
     }
 
-    /**
-     * @param string $sourceReference
-     * @return Package
-     */
     public function setSourceReference(string $sourceReference): Package
     {
         $this->sourceReference = $sourceReference;

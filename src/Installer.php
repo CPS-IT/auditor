@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CPSIT\Auditor;
 
 /***************************************************************
@@ -56,10 +58,7 @@ final class Installer implements PluginInterface, EventSubscriberInterface
         ];
     }
 
-    /**
-     * @param Event $composerEvent
-     */
-    public static function dumpBundleDescriberClass(Event $composerEvent)
+    public static function dumpBundleDescriberClass(Event $composerEvent): void
     {
         $composer = $composerEvent->getComposer();
         $properties = RootPackageReflection::getProperties($composer->getPackage());

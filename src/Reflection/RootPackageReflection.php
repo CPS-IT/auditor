@@ -1,6 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CPSIT\Auditor\Reflection;
+
 use Composer\Package\RootPackageInterface;
 use CPSIT\Auditor\RootPackageReflectionInterface;
 
@@ -25,10 +28,9 @@ class RootPackageReflection
 {
     /**
      * Gets all available properties from Package
-     * @param RootPackageInterface $package
-     * @return array
      */
-    static public function getProperties(RootPackageInterface $package) :array {
+    public static function getProperties(RootPackageInterface $package): array
+    {
         $properties = [];
         $allowedProperties = RootPackageReflectionInterface::SUPPORTED_PACKAGE_PROPERTIES;
 

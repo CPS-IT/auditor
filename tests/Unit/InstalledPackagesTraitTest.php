@@ -24,10 +24,7 @@ use PHPUnit\Framework\TestCase;
  * This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-/**
- * Class InstalledPackagesTraitTest
- * @coversDefaultClass \CPSIT\Auditor\InstalledPackagesTrait
- */
+#[\PHPUnit\Framework\Attributes\CoversClass(\CPSIT\Auditor\InstalledPackagesTrait::class)]
 class InstalledPackagesTraitTest extends TestCase
 {
     /**
@@ -68,9 +65,7 @@ class InstalledPackagesTraitTest extends TestCase
         );
     }
 
-    /**
-     * @covers ::isPackageInstalled
-     */
+    #[\PHPUnit\Framework\Attributes\Covers('isPackageInstalled')]
     public function testIsPackageInstalledReturnsFalseForMissingPackage(): void
     {
         self::assertFalse(
@@ -78,9 +73,7 @@ class InstalledPackagesTraitTest extends TestCase
         );
     }
 
-    /**
-     * @covers ::propertyExists
-     */
+    #[\PHPUnit\Framework\Attributes\Covers('propertyExists')]
     public function testPropertyExistThrowsExceptionForMissingProperty(): void
     {
         $expectedMessage = sprintf(
@@ -102,9 +95,7 @@ class InstalledPackagesTraitTest extends TestCase
         $this->subjectWithoutPropertyInstalledPackages::propertyExists(DescriberInterface::INSTALLED_PACKAGES);
     }
 
-    /**
-     * @covers ::getInstalledPackage
-     */
+    #[\PHPUnit\Framework\Attributes\Covers('getInstalledPackage')]
     public function testGetInstalledPackageReturnsPackageObject(): void
     {
         self::assertInstanceOf(

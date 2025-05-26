@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CPSIT\Auditor\Dto;
 
 /***************************************************************
@@ -24,58 +26,37 @@ namespace CPSIT\Auditor\Dto;
  */
 final class NullPackage extends Package
 {
-    const NAME = 'NullPackageName';
-    const VERSION = 'NullPackageVersion';
-    const SOURCE_REFERENCE = 'NullPackageSourceReference';
+    public const NAME = 'NullPackageName';
+    public const VERSION = 'NullPackageVersion';
+    public const SOURCE_REFERENCE = 'NullPackageSourceReference';
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return self::NAME;
     }
 
-    /**
-     * @param string $name
-     * @return Package
-     */
     public function setName(string $name): Package
     {
         // We ignore $name here since the package name is static
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getVersion(): string
     {
         return self::VERSION;
     }
 
-    /**
-     * @param string $version
-     * @return Package
-     */
     public function setVersion(string $version): Package
     {
         // We ignore $version here since the package version is static
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getSourceReference(): string
     {
         return self::SOURCE_REFERENCE;
     }
 
-    /**
-     * @param string $sourceReference
-     * @return Package
-     */
     public function setSourceReference(string $sourceReference): Package
     {
         // We ignore $sourceReference here since the packages' source reference is static
