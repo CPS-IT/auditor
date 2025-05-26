@@ -1,3 +1,7 @@
+2025-05-26         [RELEASE] Release of auditor 1.0.0 (Vladimir Falcón Piva)
+2025-05-26 bf09295 Modernize codebase with strict types and modern PHP conventions (Vladimir Falcón Piva)
+2025-05-25 abdfe4f Update composer.json (Vladimir Falcon Piva)
+
 2022-10-12         [RELEASE] Release of auditor 0.6.1 (Dirk Wenzel)
 2022-10-12 2d4897f require php ^7.4 ||  ^8.0  || ^8.1 (Dirk Wenzel)
 2022-10-12 7ab5542 [CI] include php 8.1 in test matrix (Dirk Wenzel)
