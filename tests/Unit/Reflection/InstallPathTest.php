@@ -54,10 +54,10 @@ class InstallPathTest extends TestCase
     {
         parent::setUp();
         $this->composerConfig = $this->getMockBuilder(Config::class)
-            ->setMethods(['get'])
+            ->onlyMethods(['get'])
             ->getMock();
         $this->composer = $this->getMockBuilder(Composer::class)
-            ->setMethods(['getConfig'])
+            ->onlyMethods(['getConfig'])
             ->disableOriginalConstructor()
             ->getMock();
         $this->composer->method('getConfig')
@@ -65,9 +65,7 @@ class InstallPathTest extends TestCase
         $this->subject = new InstallPath($this->composer);
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function testToStringReturnsPackagePathInVendorFolderFromComposerConfig(): void
     {
         $vendorDir = 'foo';

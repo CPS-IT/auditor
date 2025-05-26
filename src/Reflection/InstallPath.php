@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CPSIT\Auditor\Reflection;
 
 /**
@@ -24,23 +26,14 @@ use CPSIT\Auditor\SettingsInterface as SI;
  */
 class InstallPath
 {
-    /**
-     * @var Config
-     */
-    protected $composerConfig;
-    /**
-     * InstallPath constructor.
-     * @param Composer $composer
-     */
+    protected Config $composerConfig;
     public function __construct(Composer $composer)
     {
         $this->composerConfig = $composer->getConfig();
     }
 
-    /**
-     * @return string
-     */
-    public function toString(): string {
+    public function toString(): string
+    {
         return $this->composerConfig->get(SI::KEY_VENDOR_DIR) . '/' . SI::PACKAGE_IDENTIFIER;
     }
 

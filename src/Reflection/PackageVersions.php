@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CPSIT\Auditor\Reflection;
 
 /***************************************************************
@@ -28,7 +30,10 @@ use PackageVersions\Versions;
  */
 class PackageVersions
 {
-    public static function getAll()
+    /**
+     * @return Package[]
+     */
+    public static function getAll(): array
     {
         $versions = self::parsePackageVersions();
         $packages = [];

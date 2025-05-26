@@ -116,7 +116,7 @@ trait TestApplicationTrait
         }
     }
 
-    protected function onNotSuccessfulTest(\Throwable $t): void
+    protected function onNotSuccessfulTest(\Throwable $t): never
     {
         $this->keepTestApplication = true;
         parent::onNotSuccessfulTest($t);

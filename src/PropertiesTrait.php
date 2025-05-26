@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace CPSIT\Auditor;
 
 /***************************************************************
@@ -21,16 +23,9 @@ namespace CPSIT\Auditor;
 
 trait PropertiesTrait
 {
-    /**
-     * @var array|null
-     */
-    protected static $resolvedProperties;
+    protected static ?array $resolvedProperties = null;
 
-    /**
-     * @param string $key
-     * @return mixed
-     */
-    public static function getProperty(string $key)
+    public static function getProperty(string $key): mixed
     {
         if (!self::hasProperty($key)) {
             throw new \OutOfBoundsException(
@@ -41,7 +36,7 @@ trait PropertiesTrait
         return static::$resolvedProperties[$key];
     }
 
-    public static function hasProperty(string $key):bool
+    public static function hasProperty(string $key): bool
     {
         if (!static::arePropertiesResolved()) {
             static::resolveProperties();

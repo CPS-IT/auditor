@@ -43,9 +43,7 @@ class RootPackageReflectionTest extends TestCase
             ->getMock();
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function testGetPropertiesReturnsArray(): void
     {
         $result = RootPackageReflection::getProperties($this->rootPackage);
@@ -55,9 +53,7 @@ class RootPackageReflectionTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function testGetPropertiesContainsAllowedProperties(): void
     {
         $expectedProperties = RootPackageReflectionInterface::SUPPORTED_PACKAGE_PROPERTIES;

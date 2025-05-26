@@ -1,20 +1,20 @@
 {
-    "name": "cpsit/auditor-test-application",
-    "repositories": [
-        {
-            "type": "path",
-            "url": "%APPLICATION_PATH%",
-            "options": {
-                "symlink": false
-            }
-        }
-    ],
-    "config": {
-        "allow-plugins": {
-            "cpsit/auditor": true
-        }
-    },
-    "require": {
-        "cpsit/auditor": "*@dev"
-    }
+	"name": "cpsit/auditor-test-application",
+	"repositories": [
+		{
+			"type": "path",
+			"url": "%APPLICATION_PATH%",
+			"options": {
+				"symlink": false
+			}
+		}
+	],
+	"config": {
+		"allow-plugins": {
+			"cpsit/auditor": true
+		}
+	},
+	"require": {
+		"cpsit/auditor": "*@dev"
+	}
 }

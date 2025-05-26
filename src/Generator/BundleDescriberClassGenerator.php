@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace CPSIT\Auditor\Generator;
 
 /***************************************************************
@@ -33,8 +36,10 @@ class BundleDescriberClassGenerator
     public const MESSAGE_GENERATE_BUNDLE_DESCRIBER = ' Generate bundle describer class...';
     public const MESSAGE_DONE_BUNDLE_DESCRIBER = ' bundle describer class generated';
 
-    private static $generatedClassTemplate = <<<'PHP'
+    private static string $generatedClassTemplate = <<<'PHP'
 <?php
+
+declare(strict_types=1);
 
 namespace CPSIT\Auditor;
 
@@ -47,42 +52,28 @@ namespace CPSIT\Auditor;
 %s implements DescriberInterface
 {
     use PropertiesTrait;
-    static protected $properties = '%s';
-    static protected $installedPackages = '%s';
-    
+    protected static string $properties = '%s';
+    protected static string $installedPackages = '%s';
+
     private function __construct()
     {
-    }    
+    }
 }
 
 PHP;
 
-    /**
-     * @var InstallPath
-     */
-    protected $installPath;
+    protected InstallPath $installPath;
 
-    /**
-     * @var IOInterface
-     */
-    protected $io;
+    protected IOInterface $io;
 
-    /**
-     * BundleDescriberClassGenerator constructor.
-     * @param Composer $composer
-     * @param IOInterface $io
-     */
     public function __construct(Composer $composer, IOInterface $io)
     {
         $this->installPath = new InstallPath($composer);
         $this->io = $io;
     }
 
-    /**
-     * @param array $properties
-     * @param array $installedPackages
-     */
-    public function writeFile(array $properties = [], array $installedPackages = []) {
+    public function writeFile(array $properties = [], array $installedPackages = []): void
+    {
         $filePath = $this->getFilePath();
 
 
@@ -99,9 +90,6 @@ PHP;
 
     /**
      * Generates the source for the BundleDescriber class
-     * @param array $properties
-     * @param array $installedPackages
-     * @return string
      */
     protected function generateSource(array $properties, array $installedPackages): string
     {
@@ -115,7 +103,6 @@ PHP;
 
     /**
      * Get the path of the Application Reflection Class
-     * @return string
      */
     protected function getFilePath(): string
     {

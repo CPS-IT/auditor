@@ -34,18 +34,14 @@ class PackageVersionsTest extends TestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function getAllReturnsArrayOfAllInstalledPackages(): void
     {
         $packages = PackageVersions::getAll();
         self::assertPackageExists(new Package(['name' => 'cpsit/auditor']), $packages);
     }
 
-    /**
-     * @test
-     */
+    #[\PHPUnit\Framework\Attributes\Test]
     public function getAllDoesNotReturnMetaPackages(): void
     {
         $installedPackages = InstalledVersions::getInstalledPackages();
@@ -58,9 +54,11 @@ class PackageVersionsTest extends TestCase
             return $package->getName();
         }, $actual);
 
+        sort($expected);
+        sort($actual);
         self::assertEquals(
-            sort($expected),
-            sort($actual)
+            $expected,
+            $actual
         );
     }
 

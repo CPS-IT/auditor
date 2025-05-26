@@ -8,15 +8,16 @@ This is a Composer plugin. It allows to access information about the current (ro
 
 ## Requirements
 
-* Composer
-* PHP >= 7.4
+* Composer 2.1+
+* PHP ^8.2 || ^8.3
 
 ### Version matrix
 
-|              | PHP 8.0 | PHP 7.4 | PHP 7.3 | PHP 7.2       | PHP 7.1       |
-| ------------ |---------|---------|---------|---------------|---------------|
-| Composer 1.x | 0.5.x   | 0.5.x   | 0.5.x   | 0.1.0 - 0.5.x | 0.1.0 - 0.5.x |
-| Composer 2.x | >=0.5   | >=0.5   | 0.5.x   | 0.5.x         | 0.5.x         |
+|              | PHP 8.3 | PHP 8.2 | PHP 8.1 | PHP 8.0 | PHP 7.4 |
+| ------------ |---------|---------|---------|---------|---------|
+| Composer 2.x | >=0.7   | >=0.7   | <=0.6.x | <=0.6.x | <=0.6.x |
+
+**Note:** Version 0.7+ requires PHP 8.2+ and uses modern PHP features including strict types, typed properties, and PHPUnit 10/11.
 
 ## Usage
 
